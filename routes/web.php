@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 // Landing Page
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/portfolio-details', [LandingPageController::class, 'portfolio']);
+Route::get('/journal', [LandingPageController::class, 'journal']);
