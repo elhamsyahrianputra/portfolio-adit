@@ -10,7 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    {{-- <link href="{{ asset('/assets') }}/img/favicon.png" rel="icon">
+    {{--
+    <link href="{{ asset('/assets') }}/img/favicon.png" rel="icon">
     <link href="{{ asset('/assets') }}/img/apple-touch-icon.png" rel="apple-touch-icon"> --}}
 
     <!-- Google Fonts -->
@@ -48,6 +49,7 @@
                     <li><a class="nav-link scrollto" href="#bipa">BIPA</a></li>
                     <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#journal">Blog</a></li>
+                    <li><a class="nav-link scrollto" href="#video">Video</a></li>
                     {{-- <li class="dropdown"><a href="#"><span>BIPA</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://baswara-uns.com" target="_blank">Baswara</a></li>
@@ -113,7 +115,8 @@
                             <p class="p-heading">I'm Collage Student At Sebelas Maret University
                             </p>
 
-                            <p class="separator">Saya merupakan seorang mahasiswa yang berkuliah di Universitas Sebelas Maret dengan Prodi Pendidikan Bahasa Indonesia
+                            <p class="separator">Saya merupakan seorang mahasiswa yang berkuliah di Universitas Sebelas
+                                Maret dengan Prodi Pendidikan Bahasa Indonesia
                             </p>
                         </div>
                     </div>
@@ -205,80 +208,177 @@
                 <div class="section-title text-center">
                     <h2>Resume / Riwayat Pengalaman</h2>
                     <p>Berikut merupakan Resume atau riwayat penglaman saya </p>
+                    <ul class="nav nav-pills d-flex justify-content-evenly mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-1-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1"
+                                aria-selected="true">Muhammad Aditya Wisnu Wardana</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2"
+                                type="button" role="tab" aria-controls="pills-2" aria-selected="false">Elham Syahrian Putra</button>
+                        </li>
+                    </ul>
                 </div>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
+                        tabindex="0">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 class="resume-title">Sumary | Ringkasan</h3>
+                                <div class="resume-item pb-0">
+                                    <h4>Muhammad Aditya Wisnu Wardana</h4>
+                                    <p><em>Innovative and deadline-driven Person 3+ years of Bahasa Indonesia Language
+                                            Expert</em></p>
+                                    <ul>
+                                        <li>Surakarta ,Jawa Tengah, Indonesia</li> <!-- Tempat Lahir -->
+                                        <li>+62813-1234-5678</li> <!-- No. Handphone -->
+                                        <li>adityawahyu@gmail.com</li> <!-- email -->
+                                    </ul>
+                                </div>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h3 class="resume-title">Sumary | Ringkasan</h3>
-                        <div class="resume-item pb-0">
-                            <h4>Muhammad Aditya Wisnu Wardana</h4>
-                            <p><em>Innovative and deadline-driven Person 3+ years of Bahasa Indonesia Language Expert</em></p>
-                            <ul>
-                                <li>Surakarta ,Jawa Tengah, Indonesia</li> <!-- Tempat Lahir -->
-                                <li>+62813-1234-5678</li> <!-- No. Handphone -->
-                                <li>adityawahyu@gmail.com</li> <!-- email -->
-                            </ul>
-                        </div>
-
-                        <h3 class="resume-title">Education | Pendidikan</h3>
-                        <div class="resume-item">
-                            <h4>Sekolah Dasar</h4>
-                            <h5>2008 - 2014</h5>
-                            <p><em>SD Negeri 001 Surakarta</em></p>
-                            <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero
-                                voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Sekolah Menengah Pertama</h4>
-                            <h5>2014 - 2017</h5>
-                            <p><em>SMP Negeri 002 Surakarta</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Sekolah Menengah Atas</h4>
-                            <h5>2017 - 2020</h5>
-                            <p><em>SMA Negeri 003 Surakarta</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Sarjana</h4>
-                            <h5>2020 - Sekarang</h5>
-                            <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
+                                <h3 class="resume-title">Education | Pendidikan</h3>
+                                <div class="resume-item">
+                                    <h4>Sekolah Dasar</h4>
+                                    <h5>2008 - 2014</h5>
+                                    <p><em>SD Negeri 001 Surakarta</em></p>
+                                    <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit.
+                                        Ea vero
+                                        voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sekolah Menengah Pertama</h4>
+                                    <h5>2014 - 2017</h5>
+                                    <p><em>SMP Negeri 002 Surakarta</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sekolah Menengah Atas</h4>
+                                    <h5>2017 - 2020</h5>
+                                    <p><em>SMA Negeri 003 Surakarta</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sarjana</h4>
+                                    <h5>2020 - Sekarang</h5>
+                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3 class="resume-title">Professional Experience</h3>
+                                <div class="resume-item">
+                                    <h4>Kampus Mengajar</h4>
+                                    <h5>2021</h5>
+                                    <p><em>Colomadu, Jawa Tengah</em></p>
+                                    <ul>
+                                        <li>Membuat RPP</li>
+                                        <li>Membuat Modul Ajar</li>
+                                        <li>Membuat PPT</li>
+                                        <li>Membuat DLL</li>
+                                    </ul>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Baswara</h4>
+                                    <h5>2022 - Sekarang</h5>
+                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
+                                    <ul>
+                                        <li>Menjadi Ketua Tim</li>
+                                        <li>Mengikuti kegiatan Semesta bersama tim</li>
+                                        <li>Menglead anggota Team</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <h3 class="resume-title">Professional Experience</h3>
-                        <div class="resume-item">
-                            <h4>Kampus Mengajar</h4>
-                            <h5>2021</h5>
-                            <p><em>Colomadu, Jawa Tengah</em></p>
-                            <ul>
-                                <li>Membuat RPP</li>
-                                <li>Membuat Modul Ajar</li>
-                                <li>Membuat PPT</li>
-                                <li>Membuat DLL</li>
-                            </ul>
-                        </div>
-                        <div class="resume-item">
-                            <h4>Baswara</h4>
-                            <h5>2022 - Sekarang</h5>
-                            <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                            <ul>
-                                <li>Menjadi Ketua Tim</li>
-                                <li>Mengikuti kegiatan Semesta bersama tim</li>
-                                <li>Menglead anggota Team</li>
-                            </ul>
+                    <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 class="resume-title">Sumary | Ringkasan</h3>
+                                <div class="resume-item pb-0">
+                                    <h4>Elham Syahrian Putra</h4>
+                                    <p><em>Innovative and deadline-driven Person 3+ years of Bahasa Indonesia Language
+                                            Expert</em></p>
+                                    <ul>
+                                        <li>Tenggarong, Kalimantan Timur, Indonesia</li> <!-- Tempat Lahir -->
+                                        <li>+62813-1234-5678</li> <!-- No. Handphone -->
+                                        <li>adityawahyu@gmail.com</li> <!-- email -->
+                                    </ul>
+                                </div>
+
+                                <h3 class="resume-title">Education | Pendidikan</h3>
+                                <div class="resume-item">
+                                    <h4>Sekolah Dasar</h4>
+                                    <h5>2008 - 2014</h5>
+                                    <p><em>SD Negeri 001 Surakarta</em></p>
+                                    <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit.
+                                        Ea vero
+                                        voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sekolah Menengah Pertama</h4>
+                                    <h5>2014 - 2017</h5>
+                                    <p><em>SMP Negeri 002 Surakarta</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sekolah Menengah Atas</h4>
+                                    <h5>2017 - 2020</h5>
+                                    <p><em>SMA Negeri 003 Surakarta</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Sarjana</h4>
+                                    <h5>2020 - Sekarang</h5>
+                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
+                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
+                                        Eius vel
+                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
+                                        consequatur neque etlon sader mart dila</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h3 class="resume-title">Professional Experience</h3>
+                                <div class="resume-item">
+                                    <h4>Kampus Mengajar</h4>
+                                    <h5>2021</h5>
+                                    <p><em>Colomadu, Jawa Tengah</em></p>
+                                    <ul>
+                                        <li>Membuat RPP</li>
+                                        <li>Membuat Modul Ajar</li>
+                                        <li>Membuat PPT</li>
+                                        <li>Membuat DLL</li>
+                                    </ul>
+                                </div>
+                                <div class="resume-item">
+                                    <h4>Baswara</h4>
+                                    <h5>2022 - Sekarang</h5>
+                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
+                                    <ul>
+                                        <li>Menjadi Ketua Tim</li>
+                                        <li>Mengikuti kegiatan Semesta bersama tim</li>
+                                        <li>Menglead anggota Team</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- End Resume Section -->
@@ -489,6 +589,70 @@
 
         </div>
         <!-- End Journal Section -->
+
+        <!-- ======= Video Section ======= -->
+        <div id="video" class="text-left paddsection">
+
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Video</h2>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="journal-block">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-4">
+                            <div class="journal-info">
+
+                                <a href="/video"><img src="https://source.unsplash.com/random/416x312/?creative"
+                                        class="img-responsive" alt="img"></a>
+
+                                <div class="journal-txt">
+
+                                    <h4><a href="/video">Video 1</a></h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4">
+                            <div class="journal-info">
+
+                                <a href="/video"><img src="https://source.unsplash.com/random/416x312/?read,book"
+                                        class="img-responsive" alt="img"></a>
+
+                                <div class="journal-txt">
+
+                                    <h4><a href="/video">Video 2</a></h4>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4">
+                            <div class="journal-info">
+
+                                <a href="/video"><img src="https://source.unsplash.com/random/416x312/?book"
+                                        class="img-responsive" alt="img"></a>
+
+                                <div class="journal-txt">
+
+                                    <h4><a href="/video">Video 3</a></h4>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Video Section -->
 
         <!-- ======= Contact Section ======= -->
         <div id="contact" class="paddsection">

@@ -17,4 +17,8 @@ class LandingPageController extends Controller
     public function journal() {
         return view('landing-page.journal');
     }
+
+    public function video() {
+        return view('landing-page.video');
+    }
 }
