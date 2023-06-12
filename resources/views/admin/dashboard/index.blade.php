@@ -1,15 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
+<!-- Page Title -->
 <div class="pagetitle">
   <h1>Dashboard</h1>
-  <nav>
+  <nav class="d-flex justify-content-end">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Admin</li>
       <li class="breadcrumb-item active">Dashboard</li>
     </ol>
   </nav>
-</div><!-- End Page Title -->
+</div>
 
 <section class="section dashboard">
   <div class="row">

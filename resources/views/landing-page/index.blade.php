@@ -209,77 +209,56 @@
                     <h2>Resume / Riwayat Pengalaman</h2>
                     <p>Berikut merupakan Resume atau riwayat penglaman saya </p>
                     <ul class="nav nav-pills d-flex justify-content-evenly mb-3" id="pills-tab" role="tablist">
+                        @foreach ($profiles as $profile)
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-1-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1"
-                                aria-selected="true">Muhammad Aditya Wisnu Wardana</button>
+                            <button class="nav-link {{ $loop->iteration == 1 ? 'active' : '' }}" id="pills-{{ $profile->id }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ $profile->id }}"
+                                type="button" role="tab" aria-controls="pills-{{ $profile->id }}" aria-selected="false">{{ $profile->name }}</button>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2"
-                                type="button" role="tab" aria-controls="pills-2" aria-selected="false">Elham Syahrian Putra</button>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab"
-                        tabindex="0">
+                    @foreach ($profiles as $profile)
+                    <div class="tab-pane fade  {{ $loop->iteration == 1 ? 'show active' : '' }}" id="pills-{{ $profile->id }}" role="tabpanel" aria-labelledby="pills-{{ $profile->id }}-tab" tabindex="0">
                         <div class="row">
                             <div class="col-lg-6">
                                 <h3 class="resume-title">Sumary | Ringkasan</h3>
                                 <div class="resume-item pb-0">
-                                    <h4>Muhammad Aditya Wisnu Wardana</h4>
-                                    <p><em>Innovative and deadline-driven Person 3+ years of Bahasa Indonesia Language
-                                            Expert</em></p>
+                                    <h4>{{ $profile->name }}</h4>
+                                    <p><em>{{ $profile->description }}</em></p>
                                     <ul>
-                                        <li>Surakarta ,Jawa Tengah, Indonesia</li> <!-- Tempat Lahir -->
-                                        <li>+62813-1234-5678</li> <!-- No. Handphone -->
-                                        <li>adityawahyu@gmail.com</li> <!-- email -->
+                                        <li>{{ $profile->birthplace }}</li> <!-- Tempat Lahir -->
+                                        <li>{{ $profile->phone }}</li> <!-- No. Handphone -->
+                                        <li>{{ $profile->email }}</li> <!-- email -->
                                     </ul>
                                 </div>
 
                                 <h3 class="resume-title">Education | Pendidikan</h3>
+
+                                @foreach ($profile->educations as $education)
                                 <div class="resume-item">
-                                    <h4>Sekolah Dasar</h4>
-                                    <h5>2008 - 2014</h5>
-                                    <p><em>SD Negeri 001 Surakarta</em></p>
-                                    <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit.
-                                        Ea vero
-                                        voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+                                    <h4>{{ $education->title }}</h4>
+                                    <h5>{{ $education->start_at }} - {{ $education->end_at }}</h5>
+                                    <p><em>{{ $education->place }}</em></p>
+                                    <p>{{ $education->description }}</p>
                                 </div>
-                                <div class="resume-item">
-                                    <h4>Sekolah Menengah Pertama</h4>
-                                    <h5>2014 - 2017</h5>
-                                    <p><em>SMP Negeri 002 Surakarta</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Sekolah Menengah Atas</h4>
-                                    <h5>2017 - 2020</h5>
-                                    <p><em>SMA Negeri 003 Surakarta</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Sarjana</h4>
-                                    <h5>2020 - Sekarang</h5>
-                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
+                                @endforeach
                             </div>
+
                             <div class="col-lg-6">
                                 <h3 class="resume-title">Professional Experience</h3>
+                                @foreach ($profile->experiences as $experience)
                                 <div class="resume-item">
-                                    <h4>Kampus Mengajar</h4>
-                                    <h5>2021</h5>
-                                    <p><em>Colomadu, Jawa Tengah</em></p>
+                                    <h4>{{ $experience->title }}</h4>
+                                    <h5>
+                                        @if ( $experience->start_at === $experience->end_at )
+                                            {{ $experience->start_at }}
+                                        @else
+                                            {{ $experience->start_at }} - {{ $experience->end_at }}                                          
+                                        @endif
+                                    </h5>
+                                    <p><em>{{ $experience->place }}</em></p>
+                                    <p>{{ $experience->description }}</p>
                                     <ul>
                                         <li>Membuat RPP</li>
                                         <li>Membuat Modul Ajar</li>
@@ -287,97 +266,11 @@
                                         <li>Membuat DLL</li>
                                     </ul>
                                 </div>
-                                <div class="resume-item">
-                                    <h4>Baswara</h4>
-                                    <h5>2022 - Sekarang</h5>
-                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                                    <ul>
-                                        <li>Menjadi Ketua Tim</li>
-                                        <li>Mengikuti kegiatan Semesta bersama tim</li>
-                                        <li>Menglead anggota Team</li>
-                                    </ul>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h3 class="resume-title">Sumary | Ringkasan</h3>
-                                <div class="resume-item pb-0">
-                                    <h4>Elham Syahrian Putra</h4>
-                                    <p><em>Innovative and deadline-driven Person 3+ years of Bahasa Indonesia Language
-                                            Expert</em></p>
-                                    <ul>
-                                        <li>Tenggarong, Kalimantan Timur, Indonesia</li> <!-- Tempat Lahir -->
-                                        <li>+62813-1234-5678</li> <!-- No. Handphone -->
-                                        <li>adityawahyu@gmail.com</li> <!-- email -->
-                                    </ul>
-                                </div>
-
-                                <h3 class="resume-title">Education | Pendidikan</h3>
-                                <div class="resume-item">
-                                    <h4>Sekolah Dasar</h4>
-                                    <h5>2008 - 2014</h5>
-                                    <p><em>SD Negeri 001 Surakarta</em></p>
-                                    <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit.
-                                        Ea vero
-                                        voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Sekolah Menengah Pertama</h4>
-                                    <h5>2014 - 2017</h5>
-                                    <p><em>SMP Negeri 002 Surakarta</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Sekolah Menengah Atas</h4>
-                                    <h5>2017 - 2020</h5>
-                                    <p><em>SMA Negeri 003 Surakarta</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Sarjana</h4>
-                                    <h5>2020 - Sekarang</h5>
-                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                                    <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis
-                                        Eius vel
-                                        ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                        consequatur neque etlon sader mart dila</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <h3 class="resume-title">Professional Experience</h3>
-                                <div class="resume-item">
-                                    <h4>Kampus Mengajar</h4>
-                                    <h5>2021</h5>
-                                    <p><em>Colomadu, Jawa Tengah</em></p>
-                                    <ul>
-                                        <li>Membuat RPP</li>
-                                        <li>Membuat Modul Ajar</li>
-                                        <li>Membuat PPT</li>
-                                        <li>Membuat DLL</li>
-                                    </ul>
-                                </div>
-                                <div class="resume-item">
-                                    <h4>Baswara</h4>
-                                    <h5>2022 - Sekarang</h5>
-                                    <p><em>Universitas Sebelas Maret, Surakarta, Jawa Tengah</em></p>
-                                    <ul>
-                                        <li>Menjadi Ketua Tim</li>
-                                        <li>Mengikuti kegiatan Semesta bersama tim</li>
-                                        <li>Menglead anggota Team</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>       
+                    @endforeach
                 </div>
             </div>
         </div>

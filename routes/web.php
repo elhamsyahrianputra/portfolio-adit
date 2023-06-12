@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +26,13 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/logout','logout')->middleware('auth');
 });
 
-Route::get('/admin', [DashboardController::class, 'index']);
 
-// // * Admin
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::get('/', [AdminController::class, 'index'])->middleware('auth');
-//     Route::resource('teams', TeamController::class)->middleware('auth');
-// });
+
+// * Admin
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+    Route::resource('/portfolio', PortfolioController::class)->middleware('auth');
+});
 
 // Landing Page
 Route::get('/', [LandingPageController::class, 'index']);

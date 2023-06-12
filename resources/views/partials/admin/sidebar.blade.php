@@ -37,7 +37,7 @@
 
          <!-- Portfolio -->
       <li class="nav-item">
-         <a class="nav-link collapsed" href="users-profile.html">
+         <a class="nav-link collapsed" href="/admin/portfolio">
             <i class="bi bi-clipboard"></i>
             <span>Portfolio</span>
          </a>
@@ -45,7 +45,7 @@
 
          <!-- Article -->
       <li class="nav-item">
-         <a class="nav-link collapsed" href="users-profile.html">
+         <a class="nav-link collapsed" href="/admin/article">
             <i class="bi bi-journals"></i>
             <span>Article</span>
          </a>
@@ -53,7 +53,7 @@
 
       <!-- Video -->
       <li class="nav-item">
-         <a class="nav-link collapsed" href="users-profile.html">
+         <a class="nav-link collapsed" href="/admin/video">
             <i class="bi bi-camera-video"></i>
             <span>Video</span>
          </a>
