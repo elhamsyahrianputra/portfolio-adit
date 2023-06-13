@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
@@ -15,7 +17,7 @@ class PortfolioController extends Controller
     public function index()
     {
         return view('admin.portfolio.index', [
-            
+            'portfolios' => Portfolio::all(),
         ]);
     }
 
@@ -37,7 +39,25 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'portfolio_image' => 'image|file|required',
+            'description' => 'required',
+            'category' => 'required',
+            'project_date' => 'required',
+            'project_url' => 'string',
+            'client_project' => 'string',
+        ]);
+
+        $validatedData['profile_id'] = auth()->user()->profile->id;
+
+        if ($request->file('portfolio_image')) {
+            $validatedData['portfolio_image'] = $request->file('portfolio_image')->store('portfolio/portfolio-image');
+        };
+
+        Portfolio::create($validatedData);
+
+        return redirect('/admin/portfolios')->with('success', 'Data portfolios has been update');
     }
 
     /**
@@ -69,9 +89,28 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Portfolio $portfolio)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'portfolio_image' => 'image|file',
+            'description' => 'required',
+            'category' => 'required',
+            'project_date' => 'required',
+            'project_url' => '',
+            'client_project' => '',
+        ]);
+
+
+
+        if ($request->file('portfolio_image')) {
+            Storage::delete($request->old_image);
+            $validatedData['portfolio_image'] = $request->file('portfolio_image')->store('portfolio/portfolio-image');
+        }
+
+        Portfolio::where('id', $portfolio->id)->update($validatedData);
+
+        return redirect('/admin/portfolios')->with('success', 'Data portfolio has been update');
     }
 
     /**
@@ -80,8 +119,10 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Portfolio $portfolio)
     {
-        //
+        Portfolio::destroy($portfolio->id);
+        Storage::delete($portfolio->portfolio_image);
+		return redirect('/admin/portfolios')->with('success', 'Data portfolio has been deleted');
     }
 }

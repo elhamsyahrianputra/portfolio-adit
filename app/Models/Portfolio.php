@@ -11,6 +11,13 @@ class Portfolio extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-
+        'profile_id',
+        'name',
+        'portfolio_image',
+        'description',
+        'category',
+        'client_project',
+        'project_date',
+        'project_url',
     ];
 }

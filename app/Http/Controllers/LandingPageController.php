@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class LandingPageController extends Controller
         return view('landing-page.index', [
             'title' => '',
             'profiles' => Profile::all(),
+            'portfolios' => Portfolio::all(),
             
 
         ]);

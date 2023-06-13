@@ -32,7 +32,7 @@ Route::controller(AuthController::class)->group(function () {
 // * Admin
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
-    Route::resource('/portfolios', PortfolioController::class)->middleware('auth');
+    Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->only('index', 'update', 'delete');
     Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
 });
 

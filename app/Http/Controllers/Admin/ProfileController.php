@@ -74,7 +74,6 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        // dd($request);
         $validatedData = $request->validate([
             'name' => 'required',
             'profile_image' => 'image|file',
@@ -88,7 +87,7 @@ class ProfileController extends Controller
         ]);
 
         if ($request->file('profile_image')) {
-            // Storage::delete($request->old_image);
+            Storage::delete($request->old_image);
             $validatedData['profile_image'] = $request->file('profile_image')->store('profile/profile_image');
         }
 
