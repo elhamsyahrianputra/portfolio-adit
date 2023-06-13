@@ -556,14 +556,24 @@ p {
 /*-----------------------------------------------------------------------------------*/
 /*  Section Background
 /*-----------------------------------------------------------------------------------*/
-#main>div:nth-child(1) {
+#main>div:nth-child(odd) {
   background: #f7f7f7;
 }
-#main>div:nth-child(2) {
+
+#main>#profile {
+  background: #ffffff;
+}
+
+#about {
   background: #f7f7f7;
 }
-#main>div:nth-child(even) {
+
+#services {
   background: #f7f7f7;
+}
+
+#resume {
+  background: #ffffff;
 }
 
 /*-----------------------------------------------------------------------------------*/

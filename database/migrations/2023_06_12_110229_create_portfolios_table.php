@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('portfolios', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('profile_id')->constrained('profiles');
+            $table->string('title');
+            $table->text('description');
+            $table->string('portfolio_image');
+            $table->string('title');
+            $table->string('title');
             $table->timestamps();
         });
     }

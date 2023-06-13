@@ -23,12 +23,12 @@
         @yield('content')
     </main>
 
-    {{-- <!-- Script Addition -->
-    @yield('script') --}}
-
+    
     <!-- Footer -->
     @include('partials.admin.footer')
-
+    
+    <!-- Script Addition -->
+    @yield('script')
 </body>
 
 </html>

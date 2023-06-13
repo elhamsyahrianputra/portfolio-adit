@@ -16,22 +16,27 @@ class ProfileSeeder extends Seeder
      */
     public function run()
     {
+
         Profile::create([
             'name' => 'Muhammad Aditya Wisnu Wardana',
+            'profile_image' => '/assets/img/avatar',
             'email' => 'adit@gmail.com',
             'birthplace' => 'Surakarta, Jawa Tengah, Indonesia',
             'birthdate' => Carbon::parse('2002-01-01'),
             'phone' => '+6281345587891',
-            'description' =>  'Hello my name is Muhammad Aditya Wisnu Wardana, you can call me Adit, Im Student collage at Sebelas Maret University',
+            'description' =>  "I'm Collage Student At Sebelas Maret University",
+            'detail' => 'Saya merupakan seorang mahasiswa yang berkuliah di Universitas Sebelas Maret dengan Prodi Pendidikan Bahasa Indonesia',
         ]);
 
         Profile::create([
             'name' => 'Elham Syahrian Putra',
+            'profile_image' => '/assets/img/avatar.jpg',
             'email' => 'elham@gmail.com',
             'birthplace' => 'Tenggarong, Kalimantan Timur, Indonesia',
             'birthdate' => Carbon::parse('2002-04-22'),
             'phone' => '+6281345587891',
-            'description' =>  'Hello my name is Elham Syahrian Putra, you can call me Adit, Im Student collage at Sebelas Maret University',
+            'description' =>  "I'm Collage Student At Sebelas Maret University",
+            'detail' => 'Saya merupakan seorang mahasiswa yang berkuliah di Universitas Sebelas Maret dengan Prodi Pendidikan Bahasa Indonesia',
         ]);
     }
 }

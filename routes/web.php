@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,15 +24,16 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/signup','store')->middleware('guest');
     Route::get('/login','login')->name('login')->middleware('guest');
     Route::post('/login','authenticate')->middleware('guest');
-    Route::get('/logout','logout')->middleware('auth');
+    Route::post('/logout','logout')->middleware('auth');
 });
 
 
 
 // * Admin
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
-    Route::resource('/portfolio', PortfolioController::class)->middleware('auth');
+    Route::resource('/portfolios', PortfolioController::class)->middleware('auth');
+    Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
 });
 
 // Landing Page
