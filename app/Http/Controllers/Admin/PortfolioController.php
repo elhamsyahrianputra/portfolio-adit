@@ -101,8 +101,6 @@ class PortfolioController extends Controller
             'client_project' => '',
         ]);
 
-
-
         if ($request->file('portfolio_image')) {
             Storage::delete($request->old_image);
             $validatedData['portfolio_image'] = $request->file('portfolio_image')->store('portfolio/portfolio-image');

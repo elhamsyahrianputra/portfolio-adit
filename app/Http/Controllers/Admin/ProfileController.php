@@ -88,7 +88,7 @@ class ProfileController extends Controller
 
         if ($request->file('profile_image')) {
             Storage::delete($request->old_image);
-            $validatedData['profile_image'] = $request->file('profile_image')->store('profile/profile_image');
+            $validatedData['profile_image'] = $request->file('profile_image')->store('profile/profile-image');
         }
 
         Profile::where('id', $profile->id)->update($validatedData);

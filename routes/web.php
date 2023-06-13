@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\ExperienceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,9 @@ Route::controller(AuthController::class)->group(function () {
 // * Admin
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
-    Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->only('index', 'update', 'delete');
+    Route::resource('/educations', EducationController::class)->middleware('auth')->only('store', 'update', 'destroy');
+    Route::resource('/experiences', ExperienceController::class)->middleware('auth')->only('store', 'update', 'destroy');
+    Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->except('edit', 'show');
     Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
 });
 

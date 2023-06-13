@@ -221,29 +221,29 @@
                                                 <h1 class="modal-title fs-5" id="educationModalLabel">Add Education</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <form action="/admin/educations" method="POST">
+                                            <form action="/admin/educations?profile_id={{ $profile->id }}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="row px-4 py-3">
                                                         <div class="col-12 mb-3">
                                                             <label for="title" class="form-label fw-bold">Study Title</label>
-                                                            <input type="text" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas">
+                                                            <input type="text" name="title" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas" value="{{ old('title') }}">
                                                         </div>
                                                         <div class="col-12 mb-3">
                                                             <label for="place" class="form-label fw-bold">Study Place</label>
-                                                            <input type="text" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"'>
+                                                            <input type="text" name="place" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ old('place') }}">
                                                         </div>
                                                         <div class="col-6 mb-3">
                                                             <label for="start_at" class="form-label fw-bold">Period Start</label>
-                                                            <input type="text" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012">
+                                                            <input type="text" name="start_at" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ old('start_at') }}">
                                                         </div>
                                                         <div class="col-6 mb-3">
                                                             <label for="end_at" class="form-label fw-bold">Period End</label>
-                                                            <input type="text" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang">
+                                                            <input type="text" name="end_at" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ old('end_at') }}">
                                                         </div>
                                                         <div class="col-12 mb-3">
                                                             <label for="description" class="form-label fw-bold">Description</label>
-                                                            <textarea type="text" class="form-control" id="description" placeholder="Tell something about this sutdy"></textarea>
+                                                            <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this sutdy">{{ old('description') }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -277,49 +277,49 @@
                                                 $education->end_at }}
                                             </td>
                                             <td>
-                                                <form class="d-inline" action="/admin/educations/{{ $education->id }}" method="POST" onsubmit="return confirmSubmit(this, '{{ $education->title }}')">
+                                                <form class="d-inline" action="/admin/educations/{{ $education->id }}?profile_id={{ $profile->id }}" method="POST" onsubmit="return confirmSubmit(this, '{{ $education->title }}')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
                                                 </form>
                                                 <span> | </span>
                                                 <!-- Button trigger Education Detail Modal -->
-                                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#educationModal">Detail >>></button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#educationModal-{{ $education->id }}">Detail >>></button>
                                             </td>
 
                                         </tr>
                                         <!-- Education Detail Modal -->
-                                        <div class="modal fade" id="educationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="educationModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="educationModal-{{ $education->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="educationModal-{{ $education->id }}_Label" aria-hidden="true">
                                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="educationModalLabel">Education Detail</h1>
+                                                        <h1 class="modal-title fs-5" id="educationModal-{{ $education->id }}_Label">Education Detail</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <form action="/admin/educations/{{ $education->id }}" method="POST">
+                                                    <form action="/admin/educations/{{ $education->id }}?profile_id={{ $profile->id }}" method="POST">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="modal-body">
                                                             <div class="row px-4 py-3">
                                                                 <div class="col-12 mb-3">
                                                                     <label for="title" class="form-label fw-bold">Study Title</label>
-                                                                    <input type="text" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas" value="{{ $education->title }}">
+                                                                    <input type="text" name="title" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas" value="{{ old('title', $education->title) }}">
                                                                 </div>
                                                                 <div class="col-12 mb-3">
                                                                     <label for="place" class="form-label fw-bold">Study Place</label>
-                                                                    <input type="text" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ $education->place }}">
+                                                                    <input type="text" name="place" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ old('place', $education->place) }}">
                                                                 </div>
                                                                 <div class="col-6 mb-3">
                                                                     <label for="start_at" class="form-label fw-bold">Period Start</label>
-                                                                    <input type="text" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ $education->start_at }}">
+                                                                    <input type="text" name="start_at" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ old('start_at', $education->start_at) }}">
                                                                 </div>
                                                                 <div class="col-6 mb-3">
                                                                     <label for="end_at" class="form-label fw-bold">Period End</label>
-                                                                    <input type="text" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ $education->end_at }}">
+                                                                    <input type="text" name="end_at" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ old('end_at', $education->end_at) }}">
                                                                 </div>
                                                                 <div class="col-12 mb-3">
                                                                     <label for="description" class="form-label fw-bold">Description</label>
-                                                                    <textarea type="text" class="form-control" id="description" placeholder="Tell something about this sutdy">{{ $education->description }}</textarea>
+                                                                    <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this sutdy">{{ old('description', $education->description) }}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -355,29 +355,29 @@
                                                 <h1 class="modal-title fs-5" id="experienceModalLabel">Add Experience</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <form action="/admin/experiences" method="POST">
+                                            <form action="/admin/experiences?profile_id={{ $profile->id }}" method="POST">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="row px-4 py-3">
                                                         <div class="col-12 mb-3">
                                                             <label for="title" class="form-label fw-bold">Study Title</label>
-                                                            <input type="text" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas">
+                                                            <input type="text" name="title" class="form-control" id="title" placeholder="e.g Sekolah Dasar, Sekolah Menengah Pertama, Sekolah Menengah Atas" value="{{ old('title') }}">
                                                         </div>
                                                         <div class="col-12 mb-3">
                                                             <label for="place" class="form-label fw-bold">Study Place</label>
-                                                            <input type="text" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"'>
+                                                            <input type="text" name="place" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ old('place') }}">
                                                         </div>
                                                         <div class="col-6 mb-3">
                                                             <label for="start_at" class="form-label fw-bold">Period Start</label>
-                                                            <input type="text" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012">
+                                                            <input type="text" name="start_at" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ old('start_at') }}">
                                                         </div>
                                                         <div class="col-6 mb-3">
                                                             <label for="end_at" class="form-label fw-bold">Period End</label>
-                                                            <input type="text" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang">
+                                                            <input type="text" name="end_at" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ old('end_at') }}">
                                                         </div>
                                                         <div class="col-12 mb-3">
                                                             <label for="description" class="form-label fw-bold">Description</label>
-                                                            <textarea type="text" class="form-control" id="description" placeholder="Tell something about this sutdy"></textarea>
+                                                            <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this sutdy">{{ old('description') }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -407,53 +407,53 @@
                                             <td>{{ $experience->title }}</td>
                                             <td>
                                                 {{ $experience->start_at === $experience->end_at ?
-                                                $experience->start_at : $experience->start_at . ' - ' .
-                                                $experience->end_at }}
+                                                    $experience->start_at : $experience->start_at . ' - ' .
+                                                    $experience->end_at }}
                                             </td>
                                             <td>
-                                                <form class="d-inline" action="/admin/experiences/{{ $experience->id }}" method="POST" onsubmit="return confirmSubmit(this, '{{ $experience->title }}')">
+                                                <form class="d-inline" action="/admin/experiences/{{ $experience->id }}?profile_id={{ $profile->id }}" method="POST" onsubmit="return confirmSubmit(this, '{{ $experience->title }}')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
                                                 </form>
                                                 <span> | </span>
                                                 <!-- Button trigger Experience Detial Modal -->
-                                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ExperienceModal">Detail >>></button>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ExperienceModal-{{ $experience->id }}">Detail >>></button>
                                             </td>
 
                                         </tr>
                                         <!-- Experience Detail Modal -->
-                                        <div class="modal fade" id="ExperienceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ExperienceModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="ExperienceModal-{{ $experience->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ExperienceModal-{{ $experience->id }}_Label" aria-hidden="true">
                                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="ExperienceModalLabel">Experience Detail</h1>
+                                                        <h1 class="modal-title fs-5" id="ExperienceModal-{{ $experience->id }}_Label">Experience Detail</h1>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <form action="/admin/experiences/update" method="POST">
+                                                    <form action="/admin/experiences/{{ $experience->id }}?profile_id={{ $profile->id }}" method="POST">
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="modal-body">
                                                             <div class="row px-4 py-3">
                                                                 <div class="col-12 mb-3">
                                                                     <label for="title" class="form-label fw-bold">Experience Title</label>
-                                                                    <input type="text" class="form-control" id="title" placeholder="e.g Project Manager, Web Developer, Content Analyst" value="{{ $experience->title }}">
+                                                                    <input type="text" name="title" class="form-control" id="title" placeholder="e.g Project Manager, Web Developer, Content Analyst" value="{{ old('title', $experience->title) }}">
                                                                 </div>
                                                                 <div class="col-12 mb-3">
                                                                     <label for="place" class="form-label fw-bold">Experience Place</label>
-                                                                    <input type="text" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ $experience->place }}">
+                                                                    <input type="text" name="place" class="form-control" id="place" placeholder='e.g "Gambir, Jakarta Tengah, DKI Jakarta"' value="{{ old('place', $experience->place) }}">
                                                                 </div>
                                                                 <div class="col-6 mb-3">
                                                                     <label for="start_at" class="form-label fw-bold">Period Start</label>
-                                                                    <input type="text" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ $experience->start_at }}">
+                                                                    <input type="text" name="start_at" class="form-control" id="start_at" placeholder="e.g 2000, 2004, 2008, 2012" value="{{ old('start_at', $experience->start_at) }}">
                                                                 </div>
                                                                 <div class="col-6 mb-3">
                                                                     <label for="end_at" class="form-label fw-bold">Period End</label>
-                                                                    <input type="text" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ $experience->end_at }}">
+                                                                    <input type="text" name="end_at" class="form-control" id="end_at" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" value="{{ old('end_at', $experience->end_at) }}">
                                                                 </div>
                                                                 <div class="col-12 mb-3">
                                                                     <label for="description" class="form-label fw-bold">Description</label>
-                                                                    <textarea type="text" class="form-control" id="description" placeholder="Tell something about this experience">{{ $experience->description }}</textarea>
+                                                                    <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this experience">{{ old('description', $experience->description) }}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

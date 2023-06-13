@@ -19,7 +19,7 @@ class ProfileSeeder extends Seeder
 
         Profile::create([
             'name' => 'Muhammad Aditya Wisnu Wardana',
-            'profile_image' => '/assets/img/avatar',
+            'profile_image' => 'profile/profile_image/fTKNrd2mXcq9wGkK4bWZcFXynKXjChp64Dd2IHUS.jpg',
             'email' => 'adit@gmail.com',
             'birthplace' => 'Surakarta, Jawa Tengah, Indonesia',
             'birthdate' => Carbon::parse('2002-01-01'),
@@ -30,7 +30,7 @@ class ProfileSeeder extends Seeder
 
         Profile::create([
             'name' => 'Elham Syahrian Putra',
-            'profile_image' => '/assets/img/avatar.jpg',
+            'profile_image' => 'profile/profile_image/jA3iwx9XcXA7kw7S1GUuIkw6TFJHlZLpvYexjMGv.jpg',
             'email' => 'elham@gmail.com',
             'birthplace' => 'Tenggarong, Kalimantan Timur, Indonesia',
             'birthdate' => Carbon::parse('2002-04-22'),
