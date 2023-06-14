@@ -34,31 +34,42 @@
       </li>
 
       <!-- Content -->
-      <li class="nav-heading">Portfolio</li>
+      <li class="nav-heading">Content</li>
 
          <!-- Portfolio -->
-      <li class="nav-item  {{ Request::is('admin/portfolios*')?' collapsed':'' }}">
-         <a class="nav-link collapsed" href="/admin/portfolios">
+      <li class="nav-item  {{ Request::is('admin/portfolios*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/portfolios*') ? '' : ' collapsed' }}" href="/admin/portfolios">
             <i class="bi bi-clipboard"></i>
             <span>Portfolio</span>
          </a>
       </li>
 
          <!-- Article -->
-      <li class="nav-item  {{ Request::is('admin/article*')?' collapsed':'' }}">
-         <a class="nav-link collapsed" href="/admin/article">
-            <i class="bi bi-journals"></i>
+      <li class="nav-item  {{ Request::is('admin/articles*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/articles*') ? '' : ' collapsed' }}" href="/admin/articles">
+            <i class="bi bi-articles"></i>
             <span>Article</span>
          </a>
       </li>
 
       <!-- Video -->
-      <li class="nav-item  {{ Request::is('admin/video*')?' collapsed':'' }}">
-         <a class="nav-link collapsed" href="/admin/video">
+      <li class="nav-item {{ Request::is('admin/videos*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/videos*') ? '' : ' collapsed' }}" href="/admin/videos  ">
             <i class="bi bi-camera-video"></i>
             <span>Video</span>
          </a>
       </li>
+
+         <!-- Content -->
+         <li class="nav-heading">Message</li>
+
+         <!-- Portfolio -->
+         <li class="nav-item  {{ Request::is('admin/messages*') ? '' : ' collapsed' }}">
+            <a class="nav-link {{ Request::is('admin/messages*') ? '' : ' collapsed' }}" href="/admin/messages">
+               <i class="bi bi-envelope"></i>
+               <span>Message</span>
+            </a>
+         </li>
 
    </ul>
 

@@ -879,41 +879,41 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Journal
+# Article
 --------------------------------------------------------------*/
-#journal,
-#journal-blog {
+#article,
+#article-blog {
   height: auto;
   width: 100%;
   padding-bottom: 60px;
   position: relative;
 }
 
-#journal-blog {
+#article-blog {
   background: #fff;
   padding-bottom: 30px;
 }
 
-#journal .journal-block {
+#article .article-block {
   display: inline-block;
   height: auto;
   width: 100%;
 }
 
-#journal .journal-block .journal-info {
+#article .article-block .article-info {
   position: relative;
 }
 
-.journal-block .journal-info img {
+.article-block .article-info img {
   max-width: 100%;
 }
 
-.journal-block .journal-info .journal-txt {
+.article-block .article-info .article-txt {
   padding: 25px 0px;
   position: relative;
 }
 
-.journal-block .journal-info .journal-txt h4 a {
+.article-block .article-info .article-txt h4 a {
   display: block;
   font-size: 19px;
   line-height: 24px;
@@ -923,19 +923,19 @@ p {
   transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-block .journal-info .journal-txt h4 a:hover {
+.article-block .article-info .article-txt h4 a:hover {
   color: var(--primary-color);
   transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-block .journal-info .journal-txt p {
+.article-block .article-info .article-txt p {
   margin: 0;
   font-size: 14px;
   line-height: 24px;
 }
 
 /*--------------------------------------------------------------
-# Journal
+# Article
 --------------------------------------------------------------*/
 #contact {
   height: auto;
@@ -1027,7 +1027,7 @@ p {
 /*-----------------------------------------------------------------------------------*/
 /*  /* Single page */
 /*-----------------------------------------------------------------------------------*/
-#journal-blog {
+#article-blog {
   padding-top: 140px;
 }
 
@@ -1051,7 +1051,7 @@ p {
   width: 100%;
 }
 
-.journal-txt h4 a {
+.article-txt h4 a {
   display: block;
   font-size: 19px;
   line-height: 24px;
@@ -1061,7 +1061,7 @@ p {
   transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-txt h4 a:hover {
+.article-txt h4 a:hover {
   color: var(--primary-color);
   transition: all 0.5s ease-in-out 0s;
 }
@@ -1270,8 +1270,8 @@ blockquote {
     display: inline-block;
   }
 
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* article */
+  #article .article-block .article-info {
     margin-bottom: 30px;
   }
 
@@ -1353,8 +1353,8 @@ blockquote {
     display: inline-block;
   }
 
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* article */
+  #article .article-block .article-info {
     margin-bottom: 30px;
   }
 
@@ -1436,8 +1436,8 @@ blockquote {
     display: inline-block;
   }
 
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* article */
+  #article .article-block .article-info {
     margin-bottom: 30px;
   }
 
@@ -1518,8 +1518,8 @@ blockquote {
     margin: 20px;
   }
 
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* article */
+  #article .article-block .article-info {
     margin-bottom: 30px;
   }
 
@@ -1600,8 +1600,8 @@ blockquote {
     margin: 20px;
   }
 
-  /* journal */
-  #journal .journal-block .journal-info {
+  /* article */
+  #article .article-block .article-info {
     margin-bottom: 30px;
   }
 

@@ -83,7 +83,6 @@ class ProfileController extends Controller
             'phone' => 'required',
             'description' => 'required',
             'detail' => 'required',
-            
         ]);
 
         if ($request->file('profile_image')) {

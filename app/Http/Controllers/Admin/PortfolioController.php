@@ -57,7 +57,7 @@ class PortfolioController extends Controller
 
         Portfolio::create($validatedData);
 
-        return redirect('/admin/portfolios')->with('success', 'Data portfolios has been update');
+        return redirect('/admin/portfolios')->with('success', 'Data portfolio has been added');
     }
 
     /**

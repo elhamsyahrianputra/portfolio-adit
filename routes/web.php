@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
@@ -34,15 +36,17 @@ Route::controller(AuthController::class)->group(function () {
 // * Admin
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+    Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
     Route::resource('/educations', EducationController::class)->middleware('auth')->only('store', 'update', 'destroy');
     Route::resource('/experiences', ExperienceController::class)->middleware('auth')->only('store', 'update', 'destroy');
+    Route::resource('/articles', ArticleController::class)->middleware('auth');
     Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->except('edit', 'show');
-    Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
+    Route::resource('/videos', VideoController::class)->middleware('auth');
 });
 
 // Landing Page
 Route::get('/', [LandingPageController::class, 'index']);
-Route::get('/portfolio-details', [LandingPageController::class, 'portfolio']);
-Route::get('/journal', [LandingPageController::class, 'journal']);
-Route::get('/video', [LandingPageController::class, 'video']);
+Route::get('/portfolio/{portfolio:id}', [LandingPageController::class, 'portfolio']);
+Route::get('/article/{article:slug}', [LandingPageController::class, 'article']);
+Route::get('/video/{video:id}', [LandingPageController::class, 'video']);
 

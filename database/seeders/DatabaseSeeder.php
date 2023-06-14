@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             EducationSeeder::class,
             ExperienceSeeder::class,
             PortfolioSeeder::class,
+            ArticleSeeder::class,
+            VideoSeeder::class,
         ]);
     }
 }

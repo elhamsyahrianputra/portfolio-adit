@@ -187,18 +187,19 @@
 
   tinymce.init({
     selector: 'textarea.tinymce-editor',
+    placeholder: "Type here ...",
     plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
     editimage_cors_hosts: ['picsum.photos'],
     menubar: 'file edit view insert format tools table help',
     toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
-    toolbar_sticky: true,
+    toolbar_sticky: false,
     toolbar_sticky_offset: isSmallScreen ? 102 : 108,
     autosave_ask_before_unload: true,
     autosave_interval: '30s',
     autosave_prefix: '{path}{query}-{id}-',
     autosave_restore_when_empty: false,
     autosave_retention: '2m',
-    image_advtab: true,
+    image_advtab: false,
     link_list: [{
         title: 'My page 1',
         value: 'https://www.tiny.cloud'
@@ -275,7 +276,7 @@
     toolbar_mode: 'sliding',
     contextmenu: 'link image table',
     skin: useDarkMode ? 'oxide-dark' : 'oxide',
-    content_css: useDarkMode ? 'dark' : 'default',
+    // content_css: useDarkMode ? 'dark' : 'default',
     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
   });
 
