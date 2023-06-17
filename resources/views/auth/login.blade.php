@@ -71,10 +71,9 @@
 											<label for="email" class="form-label">Email</label>
 											<div class="input-group has-validation">
 												<span class="input-group-text" id="inputGroupPrepend">@</span>
-												<input type="text" name="email" class="form-control" id="email" required />
+												<input type="text" name="email" class="form-control" id="email" required autofocus/>
 												<div class="invalid-feedback">
-													Please enter your
-													username.
+													Please enter your email
 												</div>
 											</div>
 										</div>

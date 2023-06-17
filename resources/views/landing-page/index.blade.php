@@ -378,46 +378,51 @@
                         </div>
     
                         <div class="col-lg-6">
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <form action="/message" method="POST">
+                                @csrf
                                 <div class="row gy-3">
     
                                     <div class="col-lg-6">
                                         <div class="form-group contact-block1">
-                                            <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="Your Name" required>
+                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Your Name" value="{{ old('name') }}">
+ 
                                         </div>
                                     </div>
     
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Your Email" required>
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}">
+ 
                                         </div>
                                     </div>
     
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="subject" id="subject"
-                                                placeholder="Subject" required>
+                                            <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" id="subject" placeholder="Subject" value="{{ old('subject') }}">
+ 
                                         </div>
                                     </div>
     
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="message" placeholder="Message"
-                                                required></textarea>
+                                            <textarea class="form-control @error('message') is-invalid @enderror" name="message" placeholder="Message">{{ old('message') }}</textarea>
+ 
                                         </div>
-                                    </div>
-    
-                                    <div class="col-lg-12">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your message has been sent. Thank you!</div>
                                     </div>
     
                                     <div class="mt-0">
-                                        <input type="submit" class="btn btn-defeault btn-send" value="Send message">
+                                        <button type="submit" class="btn btn-defeault btn-send" style="width: 100%">Send Message</button>
                                     </div>
+
+                                    @if (session('success'))
+                                        <div class="text-center">
+                                            <span class="text-success fw-bold fs-6">{{ session('success') }}</span>
+                                        </div>
+                                    @elseif (session('error'))
+                                        <div class="text-center">
+                                            <span class="text-danger fw-bold fs-6">{{ session('error') }}</span>
+                                        </div>
+                                    @endif
     
                                 </div>
                             </form>

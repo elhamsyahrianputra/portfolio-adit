@@ -41,12 +41,10 @@
                                 <td>{{ $article->author }}</td>
                                 <td>
                                     <a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil-square"></i></a>
-                                    <form class="d-inline" action="/admin/articles/{{ $article->id }}" method="POST"
-                                        onsubmit="return confirmSubmit(this, '{{ $article->title }}')">
+                                    <form class="d-inline" action="/admin/articles/{{ $article->id }}" method="POST" onsubmit="return confirmSubmit(this, '{{ $article->title }}')">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-outline-danger"><i
-                                                class="bi bi-trash"></i></button>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
                                     </form>
                                     <span> | </span>
                                     <!-- Button trigger Portfolio Detail Modal -->
@@ -68,9 +66,10 @@
 @endsection
 
 @section('script')
+<!-- Sweet Alert 2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
-
-// Sweetalert 2
 <script src="{{ asset('/assets/js/sweetalert2.js') }}"></script>
+
+<!-- Image Preview -->
 <script src="{{ asset('/assets/js/image-preview.js') }}"></script>
 @endsection

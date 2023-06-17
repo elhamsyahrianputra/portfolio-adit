@@ -3,7 +3,7 @@ function imagePreview(input_id, img_preview) {
     const imgPreview = document.querySelector('#'+img_preview);
 
     imgPreview.style.display = 'block';
-    imgPreview.style.maxHeight = '250px';
+    imgPreview.style.maxHeight = '300px';
     imgPreview.classList.add('border');
 
     const oFReader = new FileReader();

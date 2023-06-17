@@ -103,8 +103,8 @@
                                     <input type="hidden" name="old_image" value="{{ $profile->profile_image }}">
                                     <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                     <div class="col-md-8 col-lg-9">
-                                        <label for="profileImageInput"><img class="img-preview" src="{{ asset('storage/'.$profile->profile_image) }}" alt="Profile"></label>
-                                        <input id="profileImageInput" name="profile_image" class="mt-2 form-control @error('profile_image') is-invalid @enderror" type="file" onchange="imagePreview()">
+                                        <label for="profileImageInput"><img class="img-preview" id="img-preview" src="{{ asset('storage/'.$profile->profile_image) }}" alt="Profile"></label>
+                                        <input id="profileImageInput" name="profile_image" class="mt-2 form-control @error('profile_image') is-invalid @enderror" type="file" onchange="imagePreview('profileImageInput', 'img-preview')">
                                         @error('profile_image')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -483,46 +483,10 @@
 @endsection
 
 @section('script')
+<!-- Sweetalert 2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+<script src="{{ asset('/assets/js/sweetalert2.js') }}"></script>
     
-<script>
-    // Image Preview
-    function imagePreview() {
-        const image = document.querySelector('#profileImageInput');
-        const imgPreview = document.querySelector('.img-preview');
-
-        imgPreview.style.display = 'block';
-        imgPreview.style.maxHeight = '300px';
-        imgPreview.classList.add('border');
-
-        const oFReader = new FileReader();
-        oFReader.readAsDataURL(image.files[0]);
-
-        oFReader.onload = function(oFREvent) {
-            imgPreview.src = oFREvent.target.result;
-        }
-    }
-
-    // Sweetalert 2
-    function confirmSubmit(e, name) {
-        event.preventDefault();
-
-        Swal.fire({
-            title: 'Are you sure?',
-            html: "To delete this data experience? <br> <b>(" + name + ")</b>",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#28a745',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                e.submit();
-            } else {
-                return false;
-            }
-        });
-    }
-</script>
+<!-- Image Preview -->
+<script src="{{ asset('assets/js/image-preview.js') }}"></script>
 @endsection

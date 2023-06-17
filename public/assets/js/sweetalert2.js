@@ -3,7 +3,7 @@ function confirmSubmit(e, name) {
 
     Swal.fire({
         title: 'Are you sure?',
-        html: "To delete this data experience? <br> <b>(" + name + ")</b>",
+        html: "To delete this data? <br> <b>(" + name + ")</b>",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#28a745',

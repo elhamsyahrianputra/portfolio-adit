@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
@@ -42,6 +43,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::resource('/articles', ArticleController::class)->middleware('auth');
     Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->except('edit', 'show');
     Route::resource('/videos', VideoController::class)->middleware('auth');
+    Route::resource('/messages', MessageController::class)->middleware('auth')->only('index', 'destroy');
 });
 
 // Landing Page
@@ -49,4 +51,5 @@ Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/portfolio/{portfolio:id}', [LandingPageController::class, 'portfolio']);
 Route::get('/article/{article:slug}', [LandingPageController::class, 'article']);
 Route::get('/video/{video:id}', [LandingPageController::class, 'video']);
+Route::post('/message', [LandingPageController::class, 'messageStore']);
 
