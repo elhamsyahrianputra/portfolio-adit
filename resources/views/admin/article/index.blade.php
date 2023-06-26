@@ -23,6 +23,23 @@
                         <a href="/admin/articles/create" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i> Add Article</a>
                     </div>
 
+                    @if (session()->has('createArticle'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('createArticle') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('updateArticle'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('updateArticle') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('deleteArticle'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ session('deleteArticle') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <!-- Table with stripped rows -->
                     <table class="table datatable">
                         <thead>

@@ -27,7 +27,7 @@
                                                 <li class="date">date:<a href="#">{{ $article->created_at }}</a></li>
                                             </ul>
                                         </div>
-                                        <p class="mb-30">{{ $article->text }}</p>
+                                        <p class="mb-30">{!! $article->text !!}</p>
                                     </div>
                                 </div>
                             </div>

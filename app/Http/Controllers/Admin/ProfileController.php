@@ -92,7 +92,7 @@ class ProfileController extends Controller
 
         Profile::where('id', $profile->id)->update($validatedData);
 
-        return redirect('/admin/profiles/'.$profile->id)->with('success', 'Data profile has been update');
+        return redirect('/admin/profiles/'.$profile->id)->with('updateProfile', 'Data profile has been update');
     }
 
     /**

@@ -15,6 +15,16 @@
          </a>
       </li>
 
+      <!-- Landing Page -->
+      <li class="nav-heading">Landing Page</li>
+
+      <li class="nav-item  {{ Request::is('admin/carousels*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/carousels*') ? '' : ' collapsed' }}" href="/admin/carousels">
+            <i class="bi bi-images"></i>
+            <span>Carousels</span>
+         </a>
+      </li>
+
       <!-- Profile -->
       <li class="nav-heading">Profile</li>
 

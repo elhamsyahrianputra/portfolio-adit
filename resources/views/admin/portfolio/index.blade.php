@@ -23,6 +23,23 @@
                         <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#addPortfolioModal"><i class="bi bi-plus-lg"></i> Add Portfolio</button>
                     </div>
 
+                    @if (session()->has('createPortfolio'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('createPortfolio') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('updatePortfolio'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('updatePortfolio') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('deletePortfolio'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ session('deletePortfolio') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <!-- Add Portfolio Modal -->
                     <div class="modal fade" id="addPortfolioModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addPortfolioModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -37,7 +54,7 @@
                                         <div class="row px-4 py-3">
                                             <div class="col-12 mb-3">
                                                 <label for="name" class="form-label fw-bold">Project Name</label>
-                                                <input type="text" name="name" class="form-control" id="name" placeholder="e.g ">
+                                                <input type="text" name="name" class="form-control" id="name" placeholder="Project Name ...." autocomplete="off">
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <label for="add_portfolio_image" class="form-label fw-bold">Project Image</label>
@@ -46,23 +63,23 @@
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label for="category" class="form-label fw-bold">Category</label>
-                                                <input type="text" name="category" class="form-control" id="category" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang">
+                                                <input type="text" name="category" class="form-control" id="category" placeholder="e.g Paper, Grafis Design, Website Developer" autocomplete="off">
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label for="client_project" class="form-label fw-bold">Client <small class="fw-normal">(optional)</small class="fw-normal"></label>
-                                                <input type="text" name="client_project" class="form-control" id="client_project" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang">
+                                                <input type="text" name="client_project" class="form-control" id="client_project" placeholder="e.g 2002, 2006, 2010, 2014, Sekarang" autocomplete="off">
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label for="project_date" class="form-label fw-bold">Project date</label>
-                                                <input type="date" name="project_date" class="form-control" id="project_date">
+                                                <input type="date" name="project_date" class="form-control" id="project_date" autocomplete="off">
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label for="project_url" class="form-label fw-bold">Project URL <small class="fw-normal">(optional)</small></label>
-                                                <input type="text" name="project_url" class="form-control" id="project_url" placeholder="e.g www.example.com">
+                                                <input type="text" name="project_url" class="form-control" id="project_url" placeholder="e.g www.example.com" autocomplete="off">
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <label for="description" class="form-label fw-bold">Description</label>
-                                                <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this project"></textarea>
+                                                <textarea type="text" name="description" class="form-control" id="description" placeholder="Tell something about this project" autocomplete="off"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -172,9 +189,10 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
-    
-// Sweetalert 2
-<script src="{{ asset('/assets/js/sweetalert2.js') }}"></script>
+// Image Preview
 <script src="{{ asset('/assets/js/image-preview.js') }}"></script>
+
+// Sweetalert 2
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+<script src="{{ asset('/assets/js/sweetalert2.js') }}"></script>
 @endsection

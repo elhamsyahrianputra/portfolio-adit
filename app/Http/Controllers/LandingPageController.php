@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Video;
 use App\Models\Article;
+use App\Models\Carousel;
 use App\Models\Message;
 use App\Models\Profile;
 use App\Models\Portfolio;
@@ -16,7 +17,8 @@ class LandingPageController extends Controller
 
         return view('landing-page.index', [
             'title' => '',
-            'profiles' => Profile::all(),
+            'carousels' => Carousel::all(),
+            'profile' => Profile::first(),
             'portfolios' => Portfolio::all(),
             'articles' => Article::all(),
             'videos' => Video::all(),

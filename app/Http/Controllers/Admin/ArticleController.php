@@ -58,7 +58,7 @@ class ArticleController extends Controller
         Article::create($validatedData);
 
 
-        return redirect('/admin/articles')->with('success', 'Data article has been added');
+        return redirect('/admin/articles')->with('createArticle', 'Data article has been added');
     }
 
     /**
@@ -96,17 +96,19 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'article_image' => 'image|file',
             'author' => 'required',
             'text' => 'required',
-        ]);
+        ];
 
         if ($request->title != $article->title){
-            $validatedData['title'] = 'required|unique:articles';
+            $rules['title'] = 'required|unique:articles';
         }else{
-            $validatedData['title'] = 'required';
+            $rules['title'] = 'required';
         }
+
+        $validatedData = $request->validate($rules);
 
         if ($request->file('article_image')) {
             Storage::delete($request->old_image);
@@ -117,7 +119,7 @@ class ArticleController extends Controller
 
         Article::where('id', $article->id)->update($validatedData);
 
-        return redirect('/admin/articles')->with('success', 'Data article has been updated');
+        return redirect('/admin/articles')->with('updateArticle', 'Data article has been updated');
     }
 
     /**
@@ -130,6 +132,6 @@ class ArticleController extends Controller
     {
         Article::destroy($article->id);
         Storage::delete($article->article_image);
-		return redirect('/admin/articles')->with('success', 'Data article has been deleted');
+		return redirect('/admin/articles')->with('deleteArticle', 'Data article has been deleted');
     }
 }

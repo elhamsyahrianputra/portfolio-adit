@@ -17,10 +17,8 @@
     @include('partials.landing-page.navbar')
     </header>
     
-    <main id="main" class="main">
-        <!-- Content-->
-        @yield('content')
-    </main>
+    <!-- Content-->
+    @yield('content')
 
     
     <!-- Footer -->

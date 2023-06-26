@@ -57,7 +57,7 @@ class PortfolioController extends Controller
 
         Portfolio::create($validatedData);
 
-        return redirect('/admin/portfolios')->with('success', 'Data portfolio has been added');
+        return redirect('/admin/portfolios')->with('createPortfolio', 'Data portfolio has been added');
     }
 
     /**
@@ -108,7 +108,7 @@ class PortfolioController extends Controller
 
         Portfolio::where('id', $portfolio->id)->update($validatedData);
 
-        return redirect('/admin/portfolios')->with('success', 'Data portfolio has been update');
+        return redirect('/admin/portfolios')->with('updatePortfolio', 'Data portfolio has been update');
     }
 
     /**
@@ -121,6 +121,6 @@ class PortfolioController extends Controller
     {
         Portfolio::destroy($portfolio->id);
         Storage::delete($portfolio->portfolio_image);
-		return redirect('/admin/portfolios')->with('success', 'Data portfolio has been deleted');
+		return redirect('/admin/portfolios')->with('deletePortfolio', 'Data portfolio has been deleted');
     }
 }

@@ -15,6 +15,7 @@ class Profile extends Model
         'name',
         'profile_image',
         'email',
+        'address',
         'birthplace',
         'birthdate',
         'phone',

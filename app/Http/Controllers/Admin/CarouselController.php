@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Carousel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
-class MesaageController extends Controller
+class CarouselController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,10 @@ class MesaageController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.carousel.index', [
+            'title' => '',
+            'carousels' => Carousel::all(),
+        ]);
     }
 
     /**
@@ -35,7 +40,17 @@ class MesaageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'image_url' => 'image|file|required',
+        ]);
+
+        if ($request->file('image_url')) {
+            $validatedData['image_url'] = $request->file('image_url')->store('carousel/carousel-image');
+        };
+
+        Carousel::create($validatedData);
+
+        return redirect('/admin/carousels')->with('success', 'Carousel Image has been added');
     }
 
     /**
@@ -78,8 +93,10 @@ class MesaageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Carousel $carousel)
     {
-        //
+        Carousel::destroy($carousel->id);
+        Storage::delete($carousel->image_url);
+		return redirect('/admin/carousels')->with('deleted', 'Carousel image has been deleted');
     }
 }

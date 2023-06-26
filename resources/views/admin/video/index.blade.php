@@ -23,6 +23,23 @@
                         <a href="/admin/videos/create" class="btn btn-sm btn-success"><i class="bi bi-plus-lg"></i> Add Video</a>
                     </div>
 
+                    @if (session()->has('createVideo'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('createVideo') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('updateVideo'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('updateVideo') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session()->has('deleteVideo'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{ session('deleteVideo') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <!-- Table with stripped rows -->
                     <table class="table datatable">
                         <thead>

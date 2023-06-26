@@ -24,11 +24,5 @@ class UserSeeder extends Seeder
             'email' => 'adit@gmail.com',
             'password' => Hash::make('qwertyui'),
         ]);
-
-        User::create([
-            'profile_id' => $profiles[1]->id,
-            'email' => 'elham@gmail.com',
-            'password' => Hash::make('qwertyui'),
-        ]);
     }
 }

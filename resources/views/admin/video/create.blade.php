@@ -25,8 +25,8 @@
                         <div class="col-12 mb-3">
                             <label for="videoImage_Preview" class="form-label fw-semibold">Video Cover</label>
                             <img id="img_preview">
-                            <input type="file" name="cover_url" class="form-control mt-2 mb-3 @error('video_image') is-invalid @enderror" id="videoImage_Preview" onchange="imagePreview('videoImage_Preview', 'img_preview')">
-                            @error('video_image')
+                            <input type="file" name="cover_url" class="form-control mt-2 mb-3 @error('cover_url') is-invalid @enderror" id="videoImage_Preview" onchange="imagePreview('videoImage_Preview', 'img_preview')">
+                            @error('cover_url')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -69,6 +69,7 @@
                             <label for="text_body" class="form-label fw-semibold mb-2">Text Body</label>
                             <!-- TinyMCE Editor -->
                             <textarea id="text_body" class="tinymce-editor @error('text') is-invalid @enderror" name="text">
+                                {{ old('text') }}
                             </textarea><!-- End TinyMCE Editor -->
                             @error('text')
                             <div class="invalid-feedback">

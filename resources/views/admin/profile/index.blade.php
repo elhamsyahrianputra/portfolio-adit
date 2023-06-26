@@ -96,6 +96,13 @@
 
                         <!-- Profile Edit Tab -->
                         <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                            @if (session()->has('updateProfile'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('updateProfile') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
                             <form action="/admin/profiles/{{ $profile->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
@@ -212,6 +219,23 @@
                                 <div class="text-end mb-3">
                                     <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#addEducationModal"><i class="bi bi-plus-lg"></i> Add Education</button>
                                 </div>
+
+                                @if (session()->has('createEducation'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('createEducation') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @elseif (session()->has('updateEducation'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('updateEducation') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @elseif (session()->has('deleteEducation'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        {{ session('deleteEducation') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
                                 
                                 <!-- Add Education Modal -->
                                 <div class="modal fade" id="addEducationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addEducationModalLabel" aria-hidden="true">
@@ -346,6 +370,23 @@
                                 <div class="text-end mb-3">
                                     <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#addExperienceModal"><i class="bi bi-plus-lg"></i> Add Experience</button>
                                 </div>
+
+                                @if (session()->has('createExperience'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('createExperience') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @elseif (session()->has('updateExperience'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('updateExperience') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @elseif (session()->has('deleteExperience'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        {{ session('deleteExperience') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
                                 
                                 <!-- Add Experience Modal -->
                                 <div class="modal fade" id="addExperienceModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addEducationModalLabel" aria-hidden="true">

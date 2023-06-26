@@ -30,15 +30,5 @@ class PortfolioSeeder extends Seeder
             'project_url' => null,
          ]);
 
-        Portfolio::create([
-            'profile_id' => $profiles[1]->id,
-            'name' => "Website Baswara",
-            'portfolio_image' => 'portfolio/portfolio-image/portfolio-2.jpg',
-            'description' => "Membuat sebuah website interaktif dan menarik yang dibangun menggunakan Framework Laravel dan Bootrstrap",
-            'category' => 'Website Developer',
-            'client_project' => 'Baswara',
-            'project_date' => Carbon::parse('2022-05-17'),
-            'project_url' => 'baswara-uns.com',
-         ]);
     }
 }

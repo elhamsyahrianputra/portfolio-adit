@@ -13,26 +13,26 @@ class AuthController extends Controller
 {
     public function registration()
     {
-        return view('auth.signup', [
-            'title' => 'Daftar | Baswara',
-        ]);
+        // return view('auth.signup', [
+        //     'title' => 'Daftar | Baswara',
+        // ]);
     }
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|unique:users',
-            'password' => 'required|min:8|max:255',
-        ]);
+        // $data = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'email' => 'required|unique:users',
+        //     'password' => 'required|min:8|max:255',
+        // ]);
 
-        $data['name'] = Str::title($data['name']);
-        $data['email'] = Str::lower($data['email']);
-        $data['password'] = hash::make($data['password']);
+        // $data['name'] = Str::title($data['name']);
+        // $data['email'] = Str::lower($data['email']);
+        // $data['password'] = hash::make($data['password']);
 
-        User::create($data);
+        // User::create($data);
 
-        return redirect('/login');
+        // return redirect('/login');
     }
 
     public function login()
@@ -68,5 +68,29 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login');
+    }
+
+    public function updateSettings(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'email:dns|sometimes|required',
+            'password' => 'min:8|nullable',
+        ]);
+
+        if ($request->filled('password'))
+        {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        } else {
+            $validatedData['password'] = auth()->user()->password;
+        }
+        
+        $validatedData['email'] = Str::lower($validatedData['email']);
+        User::where('id', auth()->user()->id)->update($validatedData);
+        return redirect('/admin/user/settings')->with('success', 'Email and Password has been changes');
+
+
+        //otherwise just save the other data without password !    
+
+
     }
 }

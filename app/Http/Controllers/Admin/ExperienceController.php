@@ -48,7 +48,7 @@ class ExperienceController extends Controller
 
         Experience::create($validatedData);
 
-        return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data experience has been added');
+        return redirect('/admin/profiles/'.$request['profile_id'])->with('createExperience', 'Data experience has been added');
     }
 
     /**
@@ -92,7 +92,7 @@ class ExperienceController extends Controller
 
         Experience::where('id', $experience->id)->update($validatedData);
 
-        return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data experience has been update');
+        return redirect('/admin/profiles/'.$request['profile_id'])->with('updateExperience', 'Data experience has been update');
     }
 
     /**
@@ -104,7 +104,7 @@ class ExperienceController extends Controller
     public function destroy(Experience $experience, Request $request)
     {
         Experience::destroy($experience->id);
-		return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data experience has been deleted');
+		return redirect('/admin/profiles/'.$request['profile_id'])->with('deleteExperience', 'Data experience has been deleted');
 
     }
 }

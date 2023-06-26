@@ -13,17 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('carousels', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('profile_image');
-            $table->string('name');
-            $table->string('email');
-            $table->string('address');
-            $table->string('birthplace');
-            $table->date('birthdate');
-            $table->string('phone');
-            $table->text('description');
-            $table->text('detail');
+            $table->string('image_url');
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('carousel_images');
     }
 };

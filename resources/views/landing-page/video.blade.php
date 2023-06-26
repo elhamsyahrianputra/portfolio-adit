@@ -18,8 +18,8 @@
                                 <div class="block-main mb-30">
                                     {{-- <img src="assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
                                     --}}
-                                    <div class="text-center">
-                                        <video class="img-responsive" autoplay controls>
+                                    <div class="row justify-content-center">
+                                        <video class="video-player" autoplay controls>
                                             <source src="{{ asset('storage/'.$video->video_url) }}" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>

@@ -29,6 +29,12 @@
                         <span>My Profile</span>
                     </a>
                 </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center" href="/admin/user/settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
 
                 <li>
                     <hr class="dropdown-divider">

@@ -52,39 +52,5 @@ class EducationSeeder extends Seeder
            'description' => 'Penjelasan Singkat / Description',
         ]);
 
-        // Profile 2
-        Education::create([
-           'profile_id' => $profile[1]->id,
-           'title' => 'Sekolah Dasar',
-           'start_at' => '2008',
-           'end_at' => '2014',
-           'place' => 'SD Negeri 007 Tenggarong',
-           'description' => 'Penjelasan Singkat / Description',
-        ]);
-        Education::create([
-           'profile_id' => $profile[1]->id,
-           'title' => 'Sekolah Menengah Pertama',
-           'start_at' => '2014',
-           'end_at' => '2017',
-           'place' => 'SMP Negeri 1 Tenggarong',
-           'description' => 'Penjelasan Singkat / Description',
-        ]);
-        Education::create([
-           'profile_id' => $profile[1]->id,
-           'title' => 'Sekolah Menengah Atas',
-           'start_at' => '2017',
-           'end_at' => '2020',
-           'place' => 'SMK Negeri 1 Tenggarong',
-           'description' => 'Penjelasan Singkat / Description',
-        ]);
-        Education::create([
-           'profile_id' => $profile[1]->id,
-           'title' => 'Sarjana',
-           'start_at' => '2020',
-           'end_at' => 'Sekarang',
-           'place' => 'Fakultas Keguruan dan Ilmu Pendidikan, Universitas Sebelas Maret',
-           'description' => 'Penjelasan Singkat / Description',
-        ]);
-
     }
 }

@@ -48,7 +48,7 @@ class EducationController extends Controller
 
         Education::create($validatedData);
 
-        return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data education has been added');
+        return redirect('/admin/profiles/'.$request['profile_id'])->with('createEducation', 'Data education has been added');
     }
 
     /**
@@ -92,7 +92,7 @@ class EducationController extends Controller
 
         Education::where('id', $education->id)->update($validatedData);
 
-        return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data education has been update');
+        return redirect('/admin/profiles/'.$request['profile_id'])->with('updateEducation', 'Data education has been update');
     }
 
     /**
@@ -104,6 +104,6 @@ class EducationController extends Controller
     public function destroy(Education $education, Request $request)
     {
         Education::destroy($education->id);
-		return redirect('/admin/profiles/'.$request['profile_id'])->with('success', 'Data education has been deleted');
+		return redirect('/admin/profiles/'.$request['profile_id'])->with('deleteEducation', 'Data education has been deleted');
     }
 }

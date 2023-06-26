@@ -44,7 +44,7 @@ class VideoController extends Controller
     {
         $validatedData = $request->validate([
             'cover_url' => 'image|file|required',
-            'video_url' => 'required|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4',
+            'video_url' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/x-matroska',
             'title' => 'unique:articles|required',
             'author' => 'required',
             'text' => 'required',
@@ -62,7 +62,7 @@ class VideoController extends Controller
 
         Video::create($validatedData);
 
-        return redirect('/admin/videos')->with('success', 'Data video has been added');
+        return redirect('/admin/videos')->with('createVideo', 'Data video has been added');
     }
 
     /**
@@ -102,7 +102,7 @@ class VideoController extends Controller
     {
         $rules = [
             'cover_url' => 'image|file',
-            'video_url' => 'mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4',
+            'video_url' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
             'article_image' => 'image|file',
             'author' => 'required',
             'text' => 'required',
@@ -129,7 +129,7 @@ class VideoController extends Controller
 
         Video::where('id', $video->id)->update($validatedData);
 
-        return redirect('/admin/videos')->with('success', 'Data video has been updated');
+        return redirect('/admin/videos')->with('updateVideo', 'Data video has been updated');
     }
 
     /**
@@ -143,6 +143,6 @@ class VideoController extends Controller
         Video::destroy($video->id);
         Storage::delete($video->cover_url);
         Storage::delete($video->video_url);
-		return redirect('/admin/videos')->with('success', 'Data video has been deleted');
+		return redirect('/admin/videos')->with('deleteVideo', 'Data video has been deleted');
     }
 }
