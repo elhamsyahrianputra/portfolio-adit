@@ -102,7 +102,7 @@ class VideoController extends Controller
     {
         $rules = [
             'cover_url' => 'image|file',
-            'video_url' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi',
+            'video_url' => 'file|max:8000000|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,video/x-matroska',
             'article_image' => 'image|file',
             'author' => 'required',
             'text' => 'required',

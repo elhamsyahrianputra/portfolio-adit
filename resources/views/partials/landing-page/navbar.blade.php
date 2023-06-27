@@ -1,9 +1,9 @@
 <div class="container d-flex align-items-center justify-content-between">
 
-    {{-- <a href="index.html" class="logo"><img src="{{ asset('/assets') }}/img/logo.png" alt=""
-            class="img-fluid"></a> --}}
+    <a href="/" class="logo"><img src="{{ asset('/assets/img/logo/logo.png') }}" alt="Logo"
+            class="img-fluid"></a>
     <!-- Uncomment below if you prefer to use an text logo -->
-    <h1 class="logo"><a href="/">My Portfolio</a></h1>
+    {{-- <h1 class="logo"><a href="/">My Portfolio</a></h1> --}}
 
     <nav id="navbar" class="navbar">
         <ul>

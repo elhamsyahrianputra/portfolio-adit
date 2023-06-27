@@ -16,7 +16,7 @@
                         <div class="container-main single-main">
                             <div class="col-md-12">
                                 <div class="block-main mb-30">
-                                    <img src="assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
+                                    <img src="{{ asset('storage/'.$article->article_image) }}" class="w-100" alt="Article Image" style="height: 410px; object-fit: cover">
                                     <div class="content-main single-post padDiv">
                                         <div class="article-txt">
                                             <h4><a href="#">{{ $article->title }}</a></h4>

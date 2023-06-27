@@ -175,12 +175,6 @@
                         </h5>
                         <p><em>{{ $experience->place }}</em></p>
                         <p>{{ $experience->description }}</p>
-                        <ul>
-                            <li>Membuat RPP</li>
-                            <li>Membuat Modul Ajar</li>
-                            <li>Membuat PPT</li>
-                            <li>Membuat DLL</li>
-                        </ul>
                     </div>
                     @endforeach
                 </div>
@@ -194,7 +188,7 @@
 
         <div class="container">
             <div class="section-title text-center">
-                <h2>BIPA</h2>
+                <h2>Kunjungi Rekan Teras Belajarku</h2>
             </div>
         </div>
 
@@ -227,7 +221,7 @@
 
         <div class="container">
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
@@ -236,7 +230,7 @@
                         <li data-filter=".filter-web">Web</li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row portfolio-container">
 
@@ -279,8 +273,8 @@
                         <div class="article-info">
 
                             <a href="/article/{{ $article->slug }}" target="_blank"><img
-                                    src="{{ asset('storage/'.$article->article_image) }}" class="img-responsive"
-                                    alt="img" style="max-height: 311.99px; background: rgba(0, 0, 0, 0.5)"></a>
+                                    src="{{ asset('storage/'.$article->article_image) }}"
+                                    alt="img" style="width: 100%; height: 290px; object-fit: cover"></a>
 
                             <div class="article-txt">
 
@@ -319,8 +313,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="article-info">
 
-                            <a href="/video/{{ $video->slug }}"><img src="{{ asset('storage/'.$video->cover_url) }}"
-                                    class="img-responsive" alt="img"></a>
+                            <a href="/video/{{ $video->slug }}"><img src="{{ asset('storage/'.$video->cover_url) }}" alt="img"  style="width:100%; height:220px; object-fit: cover"></a>
 
                             <div class="article-txt">
 
