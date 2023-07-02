@@ -30,105 +30,60 @@
 <!-- End Hero -->
 
 <main id="main">
-    <!-- ======= About Section ======= -->
-    <div id="about" class="paddsection">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-4 ">
-                    <div class="div-img-bg">
-                        <div class="about-img">
-                            <img src="{{ asset('storage/'.$profile->profile_image) }}" class="img-responsive" alt="me">
+    <!-- ======= Profile Section ======= -->
+    <div id="profile">
+        <!-- ======= About Section ======= -->
+        <div id="about" class="paddsection">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-4 ">
+                        <div class="div-img-bg">
+                            <div class="about-img">
+                                <img src="{{ asset('storage/'.$profile->profile_image) }}" class="img-responsive" alt="me">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-7">
-                    <div class="about-descr">
-                        <p class="p-heading">{{ $profile->description }}</p>
+                    <div class="col-lg-7">
+                        <div class="about-descr">
+                            <p class="p-heading">{{ $profile->description }}</p>
 
-                        <p class="separator">{{ $profile->detail }}
-                        </p>
+                            <p class="separator">{{ $profile->detail }}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End About Section -->
+        <!-- End About Section -->
 
-    <!-- ======= Services Section ======= -->
-    <div id="services">
-        <div class="container">
-            <div class="services-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
+        <!-- ======= Services Section ======= -->
+        <div id="services">
+            <div class="container">
+                <div class="services-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-briefcase"></i>
-                            <span>UI/UX DESIGN</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
+                        @foreach ($skills as $skill)
+                        <div class="swiper-slide">
+                            <div class="services-block">
+                                <i class="{{ $skill->icon }}"></i>
+                                <span class="text-uppercase">{{ $skill->name }}</span>
+                                <p class="separator">
+                                    {{ $skill->description }}
+                                </p>
+                            </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                        @endforeach
 
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-card-checklist"></i>
-                            <span>BRAND IDENTITY</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-bar-chart"></i>
-                            <span>WEB DESIGN</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-binoculars"></i>
-                            <span>MOBILE APPS</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-brightness-high"></i>
-                            <span>Analytics</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="services-block">
-                            <i class="bi bi-calendar4-week"></i>
-                            <span>PHOTOGRAPHY</span>
-                            <p class="separator">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
-
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
+
         </div>
-
+        <!-- End Services Section -->
     </div>
-    <!-- End Services Section -->
-
+    
     <!-- ======= Resume Section ======= -->
     <div id="resume" class="resume paddsection">
         <div class="container" data-aos="fade-up">
@@ -194,16 +149,13 @@
 
         <div class="container">
             <div class="row text-center align-items-center justify-content-center">
+                @foreach ($collaborations as $collaboration)
                 <div class="col-8 gy-5 col-sm-6 g-sm-1 col-lg-5">
-                    <a href="https://baswara-uns.com" target="_blank">
-                        <img src="{{ asset('/assets/img/bipa/baswara.png') }}" style="width: 80%" alt="Baswara">
+                    <a href="{{ $collaboration->url }}" target="_blank">
+                        <img src="{{ asset('storage/'. $collaboration->image_url ) }}" style="width: 80%" alt="{{ $collaboration->name }}">
                     </a>
                 </div>
-                <div class="col-8 gy-5 col-sm-6 g-sm-1 col-lg-5">
-                    <a href="https://narasibudaya.com" target="_blank">
-                        <img src="{{ asset('/assets/img/bipa/narasi-budaya.png') }}" style="width: 80%" alt="Narasi Budaya">
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
 

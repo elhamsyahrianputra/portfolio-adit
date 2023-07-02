@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Admin\ArticleController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\CollaborationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +43,11 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
     Route::get('/user/settings', [DashboardController::class, 'settings'])->middleware('auth');
     Route::resource('/carousels', CarouselController::class)->middleware('auth')->only('index', 'store', 'destroy');
+    Route::resource('/skills', SkillController::class)->middleware('auth')->only('index', 'store', 'destroy', 'update');
     Route::resource('/profiles', ProfileController::class)->middleware('auth')->only('show', 'update');
     Route::resource('/educations', EducationController::class)->middleware('auth')->only('store', 'update', 'destroy');
     Route::resource('/experiences', ExperienceController::class)->middleware('auth')->only('store', 'update', 'destroy');
+    Route::resource('/collaborations', CollaborationController::class)->middleware('auth')->only('index', 'store', 'update', 'destroy');
     Route::resource('/articles', ArticleController::class)->middleware('auth');
     Route::resource('/portfolios', PortfolioController::class)->middleware('auth')->except('edit', 'show');
     Route::resource('/videos', VideoController::class)->middleware('auth');

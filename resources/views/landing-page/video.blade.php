@@ -36,7 +36,7 @@
                                                         }}</a></li>
                                             </ul>
                                         </div>
-                                        <p class="mb-30">{{ $video->text }}</p>
+                                        <p class="mb-30">{!! $video->text !!}</p>
                                     </div>
                                 </div>
                             </div>

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use App\Models\Video;
 use App\Models\Article;
-use App\Models\Carousel;
 use App\Models\Message;
 use App\Models\Profile;
+use App\Models\Carousel;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use App\Models\Collaboration;
 use Illuminate\Support\Facades\Validator;
 
 class LandingPageController extends Controller
@@ -18,7 +20,9 @@ class LandingPageController extends Controller
         return view('landing-page.index', [
             'title' => '',
             'carousels' => Carousel::all(),
+            'skills' => Skill::all(),
             'profile' => Profile::first(),
+            'collaborations' => Collaboration::all(),
             'portfolios' => Portfolio::all(),
             'articles' => Article::all(),
             'videos' => Video::all(),

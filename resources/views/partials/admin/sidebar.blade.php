@@ -1,5 +1,4 @@
 @php
-   
    $profiles = App\Models\Profile::all('name', 'id');
 @endphp
 
@@ -25,6 +24,13 @@
          </a>
       </li>
 
+      <li class="nav-item  {{ Request::is('admin/collaborations*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/collaborations*') ? '' : ' collapsed' }}" href="/admin/collaborations">
+            <i class="bi bi-people"></i>
+            <span>Collaboration</span>
+         </a>
+      </li>
+
       <!-- Profile -->
       <li class="nav-heading">Profile</li>
 
@@ -41,6 +47,13 @@
             </li>
             @endforeach
          </ul>
+      </li>
+
+      <li class="nav-item  {{ Request::is('admin/skills*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/skills*') ? '' : ' collapsed' }}" href="/admin/skills">
+            <i class="bi bi-lightbulb"></i>
+            <span>Skill</span>
+         </a>
       </li>
 
       <!-- Content -->
