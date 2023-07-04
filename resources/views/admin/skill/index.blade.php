@@ -46,7 +46,7 @@
                                             <div class="col-12 mb-3">
                                                 <label for="icon" class="form-label fw-bold">Icon</label>
                                                 <input type="text" name="icon" class="form-control mt-2" id="icon" value="{{ old('icon') }}" placeholder='e.g "bi bi-pencil", "bi bi-book"'>
-                                                <span style="font-size: 0.8rem">To see name icon, visit <a href="https://icons.getbootstrap.com">Bootstrap Icon</a></span>
+                                                <span style="font-size: 0.8rem">To see name icon, visit <a href="https://icons.getbootstrap.com" target="_blank">Bootstrap Icon</a></span>
                                             </div>
                                             <div class="col-12 mb-3">
                                                 <label for="description" class="form-label fw-bold">Description</label>

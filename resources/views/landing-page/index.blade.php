@@ -253,7 +253,7 @@
 
         <div class="container">
             <div class="section-title text-center">
-                <h2>Video</h2>
+                <h2>Siniar</h2>
             </div>
         </div>
 

@@ -45,6 +45,8 @@ class SkillController extends Controller
             'description' => 'required'
         ]);
 
+        $validatedData['profile_id'] = auth()->user()->profile->id;
+
         Skill::create($validatedData);
 
         return redirect('/admin/skills')->with('createSkill', 'Data Skill has been added');
