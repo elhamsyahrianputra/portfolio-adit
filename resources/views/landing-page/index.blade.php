@@ -5,15 +5,15 @@
 <div id="hero" class="position-absolute z-3">
     <div class="container">
         <div class="hero-content">
-            <h1>I'm <span class="typed" data-typed-items="{{ $profile->name }}"></span>
+            <h1><span class="typed" data-typed-items="Halo Selamat Datang di Selasar Belajarku, yang dikelola oleh Muhammad Aditya Wisnu Wardana"></span>
             </h1>
             <p>Universitas Sebelas Maret</p>
 
             <ul class="list-unstyled list-social">
-                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                <li><a href="https://instagram.com/cerdazid?igshid=MzRlODBiNWFlZA=="><i class="bi bi-instagram"></i></a></li>
+                <li><a href="https://www.tiktok.com/@cerdazid"><i class="bi bi-tiktok"></i></a></li>
+                <li><a href="https://twitter.com/adityawisnu246"><i class="bi bi-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/muhammad-aditya-wisnu-wisnu-675775170/"><i class="bi bi-linkedin"></i></a></li>
             </ul>
         </div>
     </div>
@@ -305,7 +305,7 @@
                     <div class="col-lg-6">
                         <div class="contact-contact">
 
-                            <h2 class="mb-30">GET IN TOUCH</h2>
+                            <h2 class="mb-30">Narahubung</h2>
 
                             <ul class="contact-details">
                                 <li><span>{{ $profile->address }}</span></li>
@@ -325,7 +325,7 @@
                                     <div class="form-group contact-block1">
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror" id="name"
-                                            placeholder="Your Name" value="{{ old('name') }}">
+                                            placeholder="Nama Lengkap" value="{{ old('name') }}">
 
                                     </div>
                                 </div>
@@ -333,7 +333,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" id="email" placeholder="Your Email" value="{{ old('email') }}">
+                                            name="email" id="email" placeholder="Alamat Email" value="{{ old('email') }}">
 
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <input type="text" class="form-control @error('subject') is-invalid @enderror"
-                                            name="subject" id="subject" placeholder="Subject"
+                                            name="subject" id="subject" placeholder="Subjek"
                                             value="{{ old('subject') }}">
 
                                     </div>
@@ -350,7 +350,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <textarea class="form-control @error('message') is-invalid @enderror"
-                                            name="message" placeholder="Message">{{ old('message') }}</textarea>
+                                            name="message" placeholder="Pesan">{{ old('message') }}</textarea>
 
                                     </div>
                                 </div>

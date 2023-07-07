@@ -203,12 +203,11 @@ p {
   line-height: 1;
   font-weight: 600;
   letter-spacing: 1px;
-  font-family: "Playfair Display", sans-serif;
-  font-style: italic;
+  font-family: "Poppins", sans-serif;
 }
 
 #header .logo a {
-  color: #898989;
+  color: var(--primary-color);
 }
 
 #header .logo img {
