@@ -3,7 +3,11 @@
 --------------------------------------------------------------*/
 
 :root {
-  --primary-color: #2E6D92;
+  --imperialRed: #E63946;
+  --honeydew: #F1FAEE;
+  --powderBlue: #A8DADC;
+  --celadonBlue: #457B9D;
+  --prussianBlue: #1D3557;
 }
 
 body {
@@ -59,12 +63,12 @@ p {
 }
 
 ::-moz-selection {
-  background: var(--primary-color);
+  background: var(--celadonBlue);
   color: #fff;
 }
 
 ::selection {
-  background: var(--primary-color);
+  background: var(--celadonBlue);
   color: #fff;
 }
 
@@ -135,7 +139,7 @@ p {
 }
 
 .hvr-shutter-in-horizontal:hover {
-  background: var(--primary-color);
+  background: var(--celadonBlue);
 }
 
 .mb-30 {
@@ -156,7 +160,7 @@ p {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: var(--primary-color);
+  background: var(--celadonBlue);
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -188,7 +192,7 @@ p {
   padding: 15px 0;
   background-color: #fff;
   top: -100%;
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px -9px 8px -10px var(--celadonBlue);
 }
 
 #header.header-scrolled,
@@ -207,7 +211,7 @@ p {
 }
 
 #header .logo a {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 #header .logo img {
@@ -267,7 +271,7 @@ p {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 .navbar .dropdown ul {
@@ -301,7 +305,7 @@ p {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 .navbar .dropdown:hover>ul {
@@ -400,7 +404,7 @@ p {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 .navbar-mobile .getstarted,
@@ -435,7 +439,7 @@ p {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -560,7 +564,44 @@ p {
   background: #f7f7f7;
 }
 
-#main>#profile {
+#main>div:nth-child(even) {
+  background: var(--prussianBlue);
+}
+
+#main>div:nth-child(even) p {
+  color: var(--honeydew);
+}
+
+#main>div:nth-child(even) h2 {
+  color: var(--powderBlue);
+}
+
+#main>div:nth-child(even) h3 {
+  color: var(--honeydew);
+}
+
+#main>div:nth-child(even) h4 {
+  color: var(--celadonBlue);
+}
+
+#main>div:nth-child(even) a {
+  color: var(--honeydew);
+}
+
+#main>div:nth-child(even) h5 {
+  color: var(--honeydew);
+  background: none;
+}
+
+#footer {
+  background: var(--prussianBlue);
+}
+
+#footer a {
+  color: honeydew;
+}
+
+/* #main>#profile {
   background: #ffffff;
 }
 
@@ -574,7 +615,7 @@ p {
 
 #resume {
   background: #ffffff;
-}
+} */
 
 /*-----------------------------------------------------------------------------------*/
 /*  About
@@ -587,7 +628,7 @@ p {
 
 #about .div-img-bg {
   padding-bottom: 30px;
-  border: 20px solid var(--primary-color);
+  border: 20px solid var(--celadonBlue);
 }
 
 #about .div-img-bg .about-img img {
@@ -639,7 +680,7 @@ p {
 
 .services-block i {
   font-size: 44px;
-  color: var(--primary-color);
+  color: var(--celadonBlue);
   line-height: 44px;
 }
 
@@ -653,11 +694,11 @@ p {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--celadonBlue);
 }
 
 .services-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--primary-color);
+  background-color: var(--celadonBlue);
 }
 
 /*--------------------------------------------------------------
@@ -674,7 +715,7 @@ p {
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid var(--primary-color);
+  border-left: 2px solid var(--celadonBlue);
   position: relative;
 }
 
@@ -684,7 +725,7 @@ p {
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: var(--primary-color);
+  color: var(--celadonBlue);
   margin-bottom: 10px;
 }
 
@@ -718,7 +759,7 @@ p {
   left: -9px;
   top: 0;
   background: #fff;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--celadonBlue);
 }
 
 /*--------------------------------------------------------------
@@ -753,7 +794,7 @@ p {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 #portfolio #portfolio-flters li:last-child {
@@ -796,7 +837,7 @@ p {
   right: 40px;
   font-size: 24px;
   top: calc(50% - 18px);
-  color: var(--primary-color);
+  color: var(--celadonBlue);
 }
 
 #portfolio .portfolio-item .portfolio-info .preview-link:hover,
@@ -834,11 +875,11 @@ p {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--celadonBlue);
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--primary-color);
+  background-color: var(--celadonBlue);
 }
 
 .portfolio-details .portfolio-info {
@@ -924,7 +965,7 @@ p {
 }
 
 .article-block .article-info .article-txt h4 a:hover {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -1062,7 +1103,7 @@ p {
 }
 
 .article-txt h4 a:hover {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -1146,7 +1187,7 @@ blockquote {
   background-color: #f2f2f2;
   margin: 30px 0;
   border: none;
-  border-left: 4px solid var(--primary-color);
+  border-left: 4px solid var(--celadonBlue);
 }
 
 /*--------------------------------------------------------------
@@ -1184,7 +1225,7 @@ blockquote {
 }
 
 #footer .socials-media ul li a:hover {
-  color: var(--primary-color);
+  color: var(--celadonBlue);
   transition: all 0.5s ease-in-out 0s;
 }
 

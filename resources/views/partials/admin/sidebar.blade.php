@@ -24,6 +24,13 @@
          </a>
       </li>
 
+      <li class="nav-item  {{ Request::is('admin/socialmedia*') ? '' : ' collapsed' }}">
+         <a class="nav-link {{ Request::is('admin/socialmedia*') ? '' : ' collapsed' }}" href="/admin/socialmedia">
+            <i class="bi bi-list-ul"></i>
+            <span>Social Media</span>
+         </a>
+      </li>
+
       <li class="nav-item  {{ Request::is('admin/collaborations*') ? '' : ' collapsed' }}">
          <a class="nav-link {{ Request::is('admin/collaborations*') ? '' : ' collapsed' }}" href="/admin/collaborations">
             <i class="bi bi-people"></i>

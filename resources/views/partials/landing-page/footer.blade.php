@@ -1,13 +1,16 @@
+@php
+   $socialMedias = App\Models\SocialMedia::all();
+@endphp
+
 <!-- ======= Footer ======= -->
 <div id="footer" class="text-center">
     <div class="container">
         <div class="socials-media text-center">
 
             <ul class="list-unstyled">
-                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                @foreach ($socialMedias as $socialMedia)
+                    <li><a href="{{ $socialMedia->url }}"><i class="{{ $socialMedia->icon }}"></i></a></li>
+                @endforeach
             </ul>
 
         </div>

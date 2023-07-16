@@ -17,11 +17,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProfileSeeder::class,
             CarouselSeeder::class,
+            SocialMediaSeeder::class,
+            CollaborationSeeder::class,
             UserSeeder::class,
             SkillSeeder::class,
             EducationSeeder::class,
             ExperienceSeeder::class,
-            CollaborationSeeder::class,
             PortfolioSeeder::class,
             ArticleSeeder::class,
             VideoSeeder::class,

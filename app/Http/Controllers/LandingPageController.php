@@ -9,6 +9,7 @@ use App\Models\Message;
 use App\Models\Profile;
 use App\Models\Carousel;
 use App\Models\Portfolio;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use App\Models\Collaboration;
 use Illuminate\Support\Facades\Validator;
@@ -20,6 +21,7 @@ class LandingPageController extends Controller
         return view('landing-page.index', [
             'title' => '',
             'carousels' => Carousel::all(),
+            'socialmedias' => SocialMedia::all(),
             'skills' => Skill::all(),
             'profile' => Profile::first(),
             'collaborations' => Collaboration::all(),

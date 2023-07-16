@@ -10,10 +10,9 @@
             <p>Universitas Sebelas Maret</p>
 
             <ul class="list-unstyled list-social">
-                <li><a href="https://instagram.com/cerdazid?igshid=MzRlODBiNWFlZA=="><i class="bi bi-instagram"></i></a></li>
-                <li><a href="https://www.tiktok.com/@cerdazid"><i class="bi bi-tiktok"></i></a></li>
-                <li><a href="https://twitter.com/adityawisnu246"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/muhammad-aditya-wisnu-wisnu-675775170/"><i class="bi bi-linkedin"></i></a></li>
+                @foreach ($socialmedias as $socialmedia)
+                    <li><a href="{{ $socialmedia->url }}"><i class="{{ $socialmedia->icon }}"></i></a></li>
+                @endforeach
             </ul>
         </div>
     </div>
