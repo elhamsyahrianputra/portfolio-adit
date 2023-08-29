@@ -1,17 +1,30 @@
 @extends('layouts.landing-page')
 
+@section('style')
+<link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.carousel.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.theme.default.css') }}">
+
+<style>
+    .owl-carousel .owl-stage {
+        display: flex;
+        align-items: center;
+    }
+</style>
+@endsection
+
 @section('content')
 <!-- ======= Hero Section ======= -->
 <div id="hero" class="position-absolute z-3">
     <div class="container">
         <div class="hero-content">
-            <h1><span class="typed" data-typed-items="Halo Selamat Datang di Selasar Belajarku, yang dikelola oleh Muhammad Aditya Wisnu Wardana"></span>
+            <h1><span class="typed"
+                    data-typed-items="Halo Selamat Datang di Selasar Belajarku, yang dikelola oleh Muhammad Aditya Wisnu Wardana"></span>
             </h1>
             <p>Universitas Sebelas Maret</p>
 
             <ul class="list-unstyled list-social">
                 @foreach ($socialmedias as $socialmedia)
-                    <li><a href="{{ $socialmedia->url }}"><i class="{{ $socialmedia->icon }}"></i></a></li>
+                <li><a href="{{ $socialmedia->url }}"><i class="{{ $socialmedia->icon }}"></i></a></li>
                 @endforeach
             </ul>
         </div>
@@ -21,7 +34,8 @@
     <div class="carousel-inner">
         @foreach ($carousels as $carousel)
         <div class="carousel-item active" data-bs-interval="10000">
-            <img src="{{ asset('storage/'.$carousel->image_url) }}" class="d-block w-100" alt="carousel image" style="height: 100vh; object-fit: cover;">
+            <img src="{{ asset('storage/'.$carousel->image_url) }}" class="d-block w-100" alt="carousel image"
+                style="height: 100vh; object-fit: cover;">
         </div>
         @endforeach
     </div>
@@ -38,7 +52,8 @@
                     <div class="col-lg-4 ">
                         <div class="div-img-bg">
                             <div class="about-img">
-                                <img src="{{ asset('storage/'.$profile->profile_image) }}" class="img-responsive" alt="me">
+                                <img src="{{ asset('storage/'.$profile->profile_image) }}" class="img-responsive"
+                                    alt="me">
                             </div>
                         </div>
                     </div>
@@ -82,7 +97,7 @@
         </div>
         <!-- End Services Section -->
     </div>
-    
+
     <!-- ======= Resume Section ======= -->
     <div id="resume" class="resume paddsection">
         <div class="container" data-aos="fade-up">
@@ -97,7 +112,8 @@
                     <div class="resume-item pb-0">
                         <h4>{{ $profile->name }}</h4>
                         <ul>
-                            <li>{{ $profile->birthplace }}, {{ $profile->birthdate->format('d M Y') }}</li> <!-- Tempat Lahir -->
+                            <li>{{ $profile->birthplace }}, {{ $profile->birthdate->format('d M Y') }}</li>
+                            <!-- Tempat Lahir -->
                             <li>{{ $profile->phone }}</li> <!-- No. Handphone -->
                             <li>{{ $profile->email }}</li> <!-- email -->
                         </ul>
@@ -147,13 +163,37 @@
         </div>
 
         <div class="container">
-            <div class="row text-center align-items-center justify-content-center">
-                @foreach ($collaborations as $collaboration)
-                <div class="col-8 gy-5 col-sm-6 g-sm-1 col-lg-5">
-                    <a href="{{ $collaboration->url }}" target="_blank">
-                        <img src="{{ asset('storage/'. $collaboration->image_url ) }}" style="width: 80%" alt="{{ $collaboration->name }}">
-                    </a>
+            {{-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="row text-center align-items-center justify-content-center">
+                        @foreach ($collaborations as $collaboration)
+                        <div class="col-8 gy-5 col-sm-6 g-sm-1 col-lg-5">
+                            <a href="{{ $collaboration->url }}" target="_blank">
+                                <img src="{{ asset('storage/'. $collaboration->image_url ) }}" style="width: 80%"
+                                    alt="{{ $collaboration->name }}">
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div> --}}
+            <div class="owl-carousel d-flex align-items-center">
+                @foreach ($collaborations as $collaboration)
+                    <div class="item">
+                        <a href="https://{{ $collaboration->url }}">
+                            <img src="{{ asset('storage/'.$collaboration->image_url) }}">
+                        </a>
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -224,8 +264,8 @@
                         <div class="article-info">
 
                             <a href="/article/{{ $article->slug }}" target="_blank"><img
-                                    src="{{ asset('storage/'.$article->article_image) }}"
-                                    alt="img" style="width: 100%; height: 290px; object-fit: cover"></a>
+                                    src="{{ asset('storage/'.$article->article_image) }}" alt="img"
+                                    style="width: 100%; height: 290px; object-fit: cover"></a>
 
                             <div class="article-txt">
 
@@ -264,7 +304,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="article-info">
 
-                            <a href="/video/{{ $video->slug }}"><img src="{{ asset('storage/'.$video->cover_url) }}" alt="img"  style="width:100%; height:220px; object-fit: cover"></a>
+                            <a href="/video/{{ $video->slug }}"><img src="{{ asset('storage/'.$video->cover_url) }}"
+                                    alt="img" style="width:100%; height:220px; object-fit: cover"></a>
 
                             <div class="article-txt">
 
@@ -290,15 +331,15 @@
                 <div class="row">
 
                     @if (session()->has('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     @elseif (session()->has('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     @endif
 
                     <div class="col-lg-6">
@@ -332,7 +373,8 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                            name="email" id="email" placeholder="Alamat Email" value="{{ old('email') }}">
+                                            name="email" id="email" placeholder="Alamat Email"
+                                            value="{{ old('email') }}">
 
                                     </div>
                                 </div>
@@ -370,4 +412,34 @@
 
 </main>
 <!-- End #main -->
+@endsection
+
+@section('script')
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('.owl-carousel').owlCarousel({
+            autoplay: true,
+            // autoplayTimeout: 100,   
+            autoplayHoverPause: false,
+            loop: true,
+            margin: 50,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+    });
+</script>
 @endsection
